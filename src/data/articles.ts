@@ -208,3 +208,15 @@ export const articles: Article[] = [
     tags: ["Machine Learning", "Deep Learning", "TensorFlow", "PyTorch", "OpenCV"],
   },
 ];
+
+export const getArticleById = (id: string): Article | undefined => {
+  return articles.find((article) => article.id === id);
+};
+
+export const getRelatedArticles = (id: string, limit = 3): Article[] => {
+  const current = getArticleById(id);
+  if (!current) return articles.slice(0, limit);
+  return articles
+    .filter((a) => a.id !== id)
+    .slice(0, limit);
+};
