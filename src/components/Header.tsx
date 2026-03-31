@@ -37,10 +37,10 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center min-w-0">
             <a href="/" className="flex items-center gap-1.5 sm:gap-2">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-violet-500 via-fuchsia-500 to-amber-400 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg shadow-fuchsia-500/30">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-[hsl(262,83%,58%)] via-[hsl(292,84%,61%)] to-[hsl(38,97%,64%)] rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg shadow-[hsl(292,84%,61%,0.3)]">
                 <span className="text-white font-bold text-base sm:text-lg">K</span>
               </div>
-              <span className="text-base sm:text-xl font-bold font-serif truncate bg-gradient-to-r from-violet-500 via-fuchsia-500 to-amber-400 bg-clip-text text-transparent hover:from-amber-400 hover:via-fuchsia-500 hover:to-violet-500 transition-all duration-500">koteshwar</span>
+              <span className="text-base sm:text-xl font-bold font-serif truncate bg-gradient-to-r from-[hsl(262,83%,58%)] via-[hsl(292,84%,61%)] to-[hsl(38,97%,64%)] bg-clip-text text-transparent">Koteshwar</span>
             </a>
           </div>
 
@@ -49,17 +49,14 @@ const Header = () => {
             <a href="/" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
               Home
             </a>
-            <a href="/#articles" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
-              Articles
-            </a>
-            <a href="/wellness" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
-              Wellness
-            </a>
-            <a href="/travel" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
-              Travel
+            <a href="/#projects" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
+              Projects
             </a>
             <a href="/about" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
               About
+            </a>
+            <a href="/contact" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
+              Contact
             </a>
           </nav>
 
@@ -77,9 +74,11 @@ const Header = () => {
               )}
             </button>
             
-            <Button className="hidden md:flex bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-2 hover:scale-105 transition-all">
-              Join Now
-            </Button>
+            <a href="https://github.com/KoteshwarChinnolla" target="_blank" rel="noopener noreferrer">
+              <Button className="hidden md:flex bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-2 hover:scale-105 transition-all">
+                GitHub
+              </Button>
+            </a>
 
             {/* Mobile Menu Button */}
             <button
@@ -99,21 +98,20 @@ const Header = () => {
               <a href="/" className="text-sm font-medium hover:text-accent transition-colors">
                 Home
               </a>
-              <a href="/#articles" className="text-sm font-medium hover:text-accent transition-colors">
-                Articles
-              </a>
-              <a href="/wellness" className="text-sm font-medium hover:text-accent transition-colors">
-                Wellness
-              </a>
-              <a href="/travel" className="text-sm font-medium hover:text-accent transition-colors">
-                Travel
+              <a href="/#projects" className="text-sm font-medium hover:text-accent transition-colors">
+                Projects
               </a>
               <a href="/about" className="text-sm font-medium hover:text-accent transition-colors">
                 About
               </a>
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full w-full">
-                Join Now
-              </Button>
+              <a href="/contact" className="text-sm font-medium hover:text-accent transition-colors">
+                Contact
+              </a>
+              <a href="https://github.com/KoteshwarChinnolla" target="_blank" rel="noopener noreferrer">
+                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full w-full">
+                  GitHub
+                </Button>
+              </a>
             </nav>
           </div>
         )}
