@@ -12,13 +12,12 @@ interface ArticleCardProps {
 const ArticleCard = ({ id, title, category, date, image, size = "small" }: ArticleCardProps) => {
   const getCategoryClass = (cat: string) => {
     const normalized = cat.toLowerCase();
-    if (normalized.includes("financ")) return "tag-financing";
-    if (normalized.includes("lifestyle")) return "tag-lifestyle";
-    if (normalized.includes("community")) return "tag-community";
-    if (normalized.includes("wellness")) return "tag-wellness";
-    if (normalized.includes("travel")) return "tag-travel";
-    if (normalized.includes("creativ")) return "tag-creativity";
-    if (normalized.includes("growth")) return "tag-growth";
+    if (normalized.includes("ai") || normalized.includes("agent")) return "tag-creativity";
+    if (normalized.includes("robot")) return "tag-wellness";
+    if (normalized.includes("devops") || normalized.includes("cloud")) return "tag-travel";
+    if (normalized.includes("backend")) return "tag-financing";
+    if (normalized.includes("research")) return "tag-community";
+    if (normalized.includes("ml") || normalized.includes("cv")) return "tag-growth";
     return "tag-lifestyle";
   };
 
@@ -52,10 +51,9 @@ const ArticleCard = ({ id, title, category, date, image, size = "small" }: Artic
             </span>
           </div>
 
-          {/* Bottom section - Title and Arrow */}
+          {/* Bottom section - Title */}
           <div className="flex items-end justify-between gap-4">
             <div className="flex-1">
-              <span className="text-white/50 text-xs font-medium tracking-wider block mb-3">{id}</span>
               <h3 className="text-white text-xl md:text-2xl lg:text-3xl font-bold leading-tight tracking-tight">
                 {title}
               </h3>
@@ -63,7 +61,7 @@ const ArticleCard = ({ id, title, category, date, image, size = "small" }: Artic
           </div>
         </div>
 
-        {/* Floating circular arrow button - positioned outside content overlay */}
+        {/* Floating circular arrow button */}
         <div className="absolute bottom-6 right-6 floating-button">
           <ArrowUpRight className="w-5 h-5" />
         </div>
