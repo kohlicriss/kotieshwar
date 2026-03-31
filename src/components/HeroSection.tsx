@@ -1,18 +1,19 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import koteshwarImg from "@/assets/koteshwar.png";
 
 const HeroSection = () => {
   return (
     <section className="relative rounded-[2.5rem] overflow-hidden bg-muted my-12 animate-fade-in">
       <div className="grid md:grid-cols-2 gap-6 md:gap-12 p-6 md:p-12 lg:p-16">
-        {/* Left side - Visual */}
-        <div className="relative aspect-[4/3] md:aspect-auto rounded-[2rem] overflow-hidden animate-scale-in bg-gradient-to-br from-[hsl(262,83%,58%)] via-[hsl(220,70%,50%)] to-[hsl(292,84%,61%)] flex items-center justify-center">
-          <div className="text-center text-white p-8 space-y-4">
-            <div className="w-32 h-32 mx-auto rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border-2 border-white/30">
-              <span className="text-6xl font-bold font-serif">CK</span>
-            </div>
-            <p className="text-lg font-medium opacity-80">Associate Software Engineer</p>
-          </div>
+        {/* Left side - Photo */}
+        <div className="relative aspect-[3/4] md:aspect-auto rounded-[2rem] overflow-hidden animate-scale-in">
+          <img
+            src={koteshwarImg}
+            alt="Chinnolla Koteshwar"
+            className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
         </div>
 
         {/* Right side - Content */}
@@ -35,29 +36,19 @@ const HeroSection = () => {
             </a>
 
             <div className="flex items-center gap-4">
-              <a
-                href="https://github.com/KoteshwarChinnolla"
-                target="_blank"
-                rel="noopener noreferrer"
+              <a href="https://github.com/KoteshwarChinnolla" target="_blank" rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full border-2 border-border hover:border-primary hover:bg-muted transition-all flex items-center justify-center hover:scale-110"
-                aria-label="GitHub"
-              >
+                aria-label="GitHub">
                 <Github className="w-5 h-5" />
               </a>
-              <a
-                href="https://linkedin.com/in/koteshwar-chinnolla-2065b4253"
-                target="_blank"
-                rel="noopener noreferrer"
+              <a href="https://linkedin.com/in/koteshwar-chinnolla-2065b4253" target="_blank" rel="noopener noreferrer"
                 className="w-12 h-12 rounded-full border-2 border-border hover:border-primary hover:bg-muted transition-all flex items-center justify-center hover:scale-110"
-                aria-label="LinkedIn"
-              >
+                aria-label="LinkedIn">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a
-                href="mailto:chinnollakoteshwar@gmail.com"
+              <a href="mailto:chinnollakoteshwar@gmail.com"
                 className="w-12 h-12 rounded-full border-2 border-border hover:border-primary hover:bg-muted transition-all flex items-center justify-center hover:scale-110"
-                aria-label="Email"
-              >
+                aria-label="Email">
                 <Mail className="w-5 h-5" />
               </a>
             </div>
