@@ -37,10 +37,10 @@ const Header = () => {
           {/* Logo */}
           <div className="flex items-center min-w-0">
             <a href="/" className="flex items-center gap-1.5 sm:gap-2">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
-                <span className="text-primary-foreground font-bold text-base sm:text-lg">P</span>
+              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-violet-500 via-fuchsia-500 to-amber-400 rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg shadow-fuchsia-500/30">
+                <span className="text-white font-bold text-base sm:text-lg">K</span>
               </div>
-              <span className="text-base sm:text-xl font-bold font-serif truncate">Perspective</span>
+              <span className="text-base sm:text-xl font-bold font-serif truncate bg-gradient-to-r from-violet-500 via-fuchsia-500 to-amber-400 bg-clip-text text-transparent hover:from-amber-400 hover:via-fuchsia-500 hover:to-violet-500 transition-all duration-500">koteshwar</span>
             </a>
           </div>
 
