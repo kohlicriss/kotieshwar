@@ -1,5 +1,5 @@
 import { Github, Linkedin, Mail, ArrowRight } from "lucide-react";
-import koteshwarImg from "@/assets/koteshwar.png";
+import koteshwarImg from "@/assets/koteshwar.jpeg";
 
 const HeroSection = () => {
   return (
