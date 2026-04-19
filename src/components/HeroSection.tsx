@@ -1,6 +1,6 @@
 import { Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import koteshwarImg from "@/assets/koteshwar.png";
+import koteshwarImg from "@/assets/koteshwar.jpeg";
 
 const HeroSection = () => {
   return (
@@ -24,7 +24,7 @@ const HeroSection = () => {
               Chinnolla Koteshwar
             </h1>
             <p className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-xl animate-slide-up stagger-1">
-              Associate Software Engineer at Anasol Consultancy Services. Building scalable backend services with Kubernetes, LangChain, Kafka, and AWS. Passionate about Agentic AI, DevOps, and open-source.
+              Associate Software Engineer at Anasol Consultancy Services. IEEE-published researcher exploring the intersection of <span className="text-foreground font-medium">Agentic AI, world models, and reinforcement learning</span> — building systems that sense, reason, and act.
             </p>
           </div>
 
