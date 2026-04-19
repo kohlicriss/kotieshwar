@@ -1,84 +1,192 @@
 import Header from "@/components/Header";
-import { Mail, Download, MapPin, Briefcase, GraduationCap, Award, Users } from "lucide-react";
+import { Mail, MapPin, Briefcase, GraduationCap, Award, Users, Github, Linkedin, Quote, Atom, Cpu, Bot, Rocket, BookOpen, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import koteshwarImg from "@/assets/koteshwar.png";
+import koteshwarImg from "@/assets/koteshwar.jpeg";
 
 const About = () => {
+  const chapters = [
+    {
+      icon: Atom,
+      kicker: "Chapter 01",
+      title: "A Curiosity That Refused to Stay Still",
+      body: [
+        "Physics was always my strongest subject — not just in school, but in every competitive exam I appeared for, whether JEE, EAMCET, or JEE Advanced. Topics like Kinematics, Laws of Motion, Rigid Body Dynamics, Electrostatics, and Electronic Devices built a curiosity in me, and I consistently scored at the top.",
+        "More than the scores, I genuinely enjoyed understanding how motion, energy, and electricity behaved — and how they connected to each other. That love for physics is what pointed me toward Electronics and Communication Engineering, and from there, toward building systems that can sense, process, and move intelligently in the real world.",
+      ],
+    },
+    {
+      icon: Cpu,
+      kicker: "Chapter 02",
+      title: "Finding My Direction — AI Inside an ECE Degree",
+      body: [
+        "In my first year, I joined the Advanced Academic Center (AAC) — a student body that encourages students to pursue projects and research beyond the standard curriculum. It was the best decision I made in college. My first project there was a product demand prediction system — modest by today's standards, but transformative for me at the time. I learnt to write real code, work with real data, and confront the gap between what textbooks describe and what systems actually do. That gap became my classroom.",
+        "From there, I dove deeper — NLP pipelines, pre-training strategies for transformers and image detection models, BERT-based classification systems from scratch, OpenCV projects, and hands-on lab work with microcontrollers and microprocessors — all in parallel with my core ECE coursework.",
+        "Over time, I grew into a mentorship role within AAC, guiding a team of four junior students through their own first projects. Teaching, I found, sharpened my own understanding in ways that studying alone never could. I participated in four hackathons during this period — each one teaching me something different about working under pressure and about how good engineering is as much about clarity of thought as it is about technical skill.",
+      ],
+    },
+    {
+      icon: Bot,
+      kicker: "Chapter 03",
+      title: "The Project That Changed Everything",
+      body: [
+        "In my final year, I took on what became the defining work of my undergraduate life — a Natural Language Based Autonomous Navigation Vehicle. The idea was simple on the surface: a robot that could understand spoken or typed human instructions and navigate autonomously to a destination.",
+        "I integrated ROS (Robot Operating System), the A* pathfinding algorithm, computer vision using OpenCV, and natural language processing into a single working system. I used LangChain and LangGraph to build the agentic layer — interpreting instructions, planning actions, and executing them in sequence — running entirely on a Raspberry Pi at the edge.",
+        "What started as a final year project ended up as a research paper accepted and presented at an IEEE conference. Writing it taught me how to think like a researcher: how to situate work within existing literature, articulate contributions clearly, and defend design choices under scrutiny.",
+      ],
+    },
+    {
+      icon: Rocket,
+      kicker: "Chapter 04",
+      title: "Entering Industry — And Finding New Problems",
+      body: [
+        "After graduation, I joined as an Associate Software Engineer in an AI and DevOps role. The transition sharpened me. I worked on production-grade recommendation systems and took on DevOps responsibilities spanning AWS, Kubernetes, Terraform, Helm, Redis, Kafka, and Elasticsearch. I wrote open-source Terraform modules and Helm charts that are actively used — small contributions to a larger ecosystem, but ones I am genuinely proud of.",
+        "Alongside that, I began building APISynIQ — an open-source AI agent that interprets natural language queries and maps them to the correct API endpoints with the right parameters. The problem is real and widespread: humans describe what they want in imprecise language, but APIs require structured, precise input. Bridging that gap reliably is harder than it sounds.",
+      ],
+    },
+    {
+      icon: Lightbulb,
+      kicker: "Chapter 05",
+      title: "The Problem I Cannot Stop Thinking About",
+      body: [
+        "Working on both the autonomous vehicle and APISynIQ, I kept hitting the same fundamental limitation: language models struggle to reliably fill structured formats like JSON from natural language input. They misinterpret ambiguous queries. They make the same class of errors repeatedly. And critically — they do not learn from their mistakes within or across interactions.",
+        "This is not a minor inconvenience. In agentic systems, a malformed JSON call can cascade into complete task failure. In autonomous systems, a misinterpreted instruction can mean a robot going to the wrong place entirely. The stakes are real.",
+        "I am currently researching this problem at the intersection of world models and reinforcement learning — how a model can build an internal representation of structured output requirements, generate outputs accordingly, and iteratively correct itself based on feedback. It is early-stage research, but I am convinced it points toward something meaningful — and I want to pursue it rigorously at the graduate level.",
+      ],
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-background animate-fade-in">
       <Header />
 
-      <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {/* Hero with photo */}
-        <div className="mb-20 flex flex-col md:flex-row items-center gap-10 md:gap-16">
-          <div className="w-48 h-48 md:w-64 md:h-64 rounded-3xl overflow-hidden flex-shrink-0 animate-scale-in shadow-2xl shadow-[hsl(var(--shadow-soft)/0.2)]">
-            <img src={koteshwarImg} alt="Chinnolla Koteshwar" className="w-full h-full object-cover object-top" />
-          </div>
-          <div className="text-center md:text-left space-y-4 animate-slide-up">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              About <span className="bg-gradient-to-r from-[hsl(262,83%,58%)] via-[hsl(292,84%,61%)] to-[hsl(38,97%,64%)] bg-clip-text text-transparent">Koteshwar</span>
-            </h1>
-            <p className="text-lg text-muted-foreground leading-relaxed max-w-xl">
-              Associate Software Engineer building intelligent, scalable systems — from cloud infrastructure to autonomous AI agents.
-            </p>
-            <div className="flex flex-wrap gap-3 justify-center md:justify-start pt-2">
-              <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><MapPin className="w-4 h-4" /> Hyderabad, India</span>
-              <span className="flex items-center gap-1.5 text-sm text-muted-foreground"><Briefcase className="w-4 h-4" /> Anasol Consultancy</span>
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        {/* HERO */}
+        <section className="mb-24 grid md:grid-cols-5 gap-10 md:gap-14 items-center">
+          <div className="md:col-span-2 animate-scale-in">
+            <div className="relative">
+              <div className="absolute -inset-4 bg-gradient-to-br from-[hsl(262,83%,58%)]/20 via-[hsl(292,84%,61%)]/20 to-[hsl(38,97%,64%)]/20 blur-2xl rounded-[2.5rem]" />
+              <div className="relative aspect-[3/4] rounded-[2rem] overflow-hidden shadow-2xl">
+                <img src={koteshwarImg} alt="Chinnolla Koteshwar" className="w-full h-full object-cover object-top grayscale-[20%]" />
+                <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+                <div className="absolute bottom-5 left-5 right-5 flex items-center justify-between text-xs uppercase tracking-widest text-white/90 font-medium">
+                  <span>Hyderabad · IN</span>
+                  <span>Est. 2025</span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Story */}
-        <section className="mb-16 animate-slide-up stagger-2">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="md:col-span-2 space-y-5 text-muted-foreground">
-              <h2 className="text-3xl font-bold text-foreground">My Journey</h2>
-              <p>
-                I'm Chinnolla Koteshwar, an Associate Software Engineer at Anasol Consultancy Services.
-                I hold a B.Tech in Electronics and Communication Engineering from Gokaraju Rangaraju Institute
-                of Engineering and Technology (CGPA: 8.39, graduated May 2025).
-              </p>
-              <p>
-                My work spans production-grade ERP systems, job recommendation platforms, and cutting-edge AI projects.
-                I'm particularly passionate about Agentic AI — building autonomous systems that can understand natural language,
-                plan tasks, and execute complex workflows.
-              </p>
-              <p>
-                I've published an IEEE research paper on "Natural Language Based Autonomous Navigation Vehicle" and actively
-                maintain open-source Helm charts and Terraform modules used by teams worldwide.
-              </p>
+          <div className="md:col-span-3 space-y-6 animate-slide-up">
+            <p className="text-xs font-semibold tracking-[0.3em] uppercase text-muted-foreground">— About</p>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight">
+              Chinnolla{" "}
+              <span className="bg-gradient-to-r from-[hsl(262,83%,58%)] via-[hsl(292,84%,61%)] to-[hsl(38,97%,64%)] bg-clip-text text-transparent italic font-serif">
+                Koteshwar
+              </span>
+            </h1>
+            <p className="text-xl md:text-2xl text-foreground/80 leading-relaxed font-light">
+              Engineer, researcher, and lifelong tinkerer building systems that <span className="font-medium text-foreground">sense, reason, and act</span> — at the intersection of Agentic AI, robotics, and reinforcement learning.
+            </p>
+            <div className="flex flex-wrap gap-x-6 gap-y-3 pt-2 text-sm">
+              <span className="flex items-center gap-2 text-muted-foreground"><MapPin className="w-4 h-4" /> Hyderabad, India</span>
+              <span className="flex items-center gap-2 text-muted-foreground"><Briefcase className="w-4 h-4" /> Anasol Consultancy</span>
+              <span className="flex items-center gap-2 text-muted-foreground"><GraduationCap className="w-4 h-4" /> B.Tech ECE · Minor in AI/ML</span>
             </div>
-            <div className="space-y-4">
-              <div className="rounded-2xl bg-card p-6 text-center card-hover">
-                <p className="text-4xl font-bold bg-gradient-to-r from-[hsl(262,83%,58%)] to-[hsl(292,84%,61%)] bg-clip-text text-transparent">8.39</p>
-                <p className="text-sm text-muted-foreground mt-1">CGPA at GRIET</p>
-              </div>
-              <div className="rounded-2xl bg-card p-6 text-center card-hover">
-                <p className="text-4xl font-bold bg-gradient-to-r from-[hsl(292,84%,61%)] to-[hsl(38,97%,64%)] bg-clip-text text-transparent">988</p>
-                <p className="text-sm text-muted-foreground mt-1">/ 1000 in Intermediate</p>
-              </div>
-              <div className="rounded-2xl bg-card p-6 text-center card-hover">
-                <p className="text-4xl font-bold bg-gradient-to-r from-[hsl(38,97%,64%)] to-[hsl(262,83%,58%)] bg-clip-text text-transparent">IEEE</p>
-                <p className="text-sm text-muted-foreground mt-1">Published Researcher</p>
-              </div>
+            <div className="flex flex-wrap gap-3 pt-4">
+              <a href="mailto:chinnollakoteshwar@gmail.com">
+                <Button className="rounded-full px-6"><Mail className="mr-2 h-4 w-4" /> Email</Button>
+              </a>
+              <a href="https://github.com/KoteshwarChinnolla" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="rounded-full px-6"><Github className="mr-2 h-4 w-4" /> GitHub</Button>
+              </a>
+              <a href="https://www.linkedin.com/in/koteshwar-chinnolla-2065b4253/" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="rounded-full px-6"><Linkedin className="mr-2 h-4 w-4" /> LinkedIn</Button>
+              </a>
             </div>
           </div>
         </section>
 
-        {/* Skills */}
-        <section className="mb-16 rounded-2xl bg-card p-8 md:p-12">
-          <h2 className="text-3xl font-bold mb-8">Technical Skills</h2>
-          <div className="space-y-8">
+        {/* PULL QUOTE */}
+        <section className="mb-24 relative rounded-[2rem] bg-gradient-to-br from-card via-card to-muted p-10 md:p-16 overflow-hidden">
+          <Quote className="absolute top-6 left-6 w-20 h-20 text-foreground/5" />
+          <blockquote className="relative max-w-3xl mx-auto text-center">
+            <p className="text-2xl md:text-3xl lg:text-4xl font-serif italic leading-snug text-foreground">
+              "The gap between what textbooks describe and what systems actually do — that gap became my classroom."
+            </p>
+            <footer className="mt-6 text-sm tracking-widest uppercase text-muted-foreground">— On joining the Advanced Academic Center, Year 1</footer>
+          </blockquote>
+        </section>
+
+        {/* STATS STRIP */}
+        <section className="mb-24 grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+          {[
+            { v: "8.39", l: "CGPA · GRIET", g: "from-[hsl(262,83%,58%)] to-[hsl(292,84%,61%)]" },
+            { v: "988", l: "/1000 · Intermediate", g: "from-[hsl(292,84%,61%)] to-[hsl(38,97%,64%)]" },
+            { v: "IEEE", l: "Published Researcher", g: "from-[hsl(38,97%,64%)] to-[hsl(262,83%,58%)]" },
+            { v: "4×", l: "Hackathons", g: "from-[hsl(262,83%,58%)] to-[hsl(38,97%,64%)]" },
+          ].map((s) => (
+            <div key={s.l} className="rounded-2xl bg-card p-6 md:p-8 text-center card-hover">
+              <p className={`text-4xl md:text-5xl font-bold bg-gradient-to-r ${s.g} bg-clip-text text-transparent`}>{s.v}</p>
+              <p className="text-xs md:text-sm text-muted-foreground mt-2 tracking-wider uppercase">{s.l}</p>
+            </div>
+          ))}
+        </section>
+
+        {/* STORY CHAPTERS */}
+        <section className="mb-24">
+          <div className="text-center mb-16">
+            <p className="text-xs font-semibold tracking-[0.3em] uppercase text-muted-foreground mb-3">— The Long Form</p>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight">My Journey, in Five Chapters</h2>
+          </div>
+
+          <div className="space-y-16 md:space-y-20">
+            {chapters.map((ch, i) => {
+              const Icon = ch.icon;
+              return (
+                <article key={ch.kicker} className="grid md:grid-cols-12 gap-6 md:gap-10 items-start">
+                  <div className="md:col-span-3 md:sticky md:top-24">
+                    <div className="flex md:flex-col items-center md:items-start gap-4">
+                      <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[hsl(262,83%,58%)] via-[hsl(292,84%,61%)] to-[hsl(38,97%,64%)] flex items-center justify-center shadow-lg">
+                        <Icon className="w-7 h-7 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-xs font-mono tracking-widest text-muted-foreground">{ch.kicker}</p>
+                        <p className="text-sm font-semibold mt-1 leading-tight">{ch.title}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="md:col-span-9 space-y-5">
+                    <h3 className="text-2xl md:text-3xl font-bold leading-tight first-letter:text-5xl first-letter:font-serif first-letter:font-bold first-letter:float-left first-letter:mr-2 first-letter:leading-none">
+                      {ch.title}
+                    </h3>
+                    {ch.body.map((p, idx) => (
+                      <p key={idx} className="text-base md:text-lg text-muted-foreground leading-relaxed">{p}</p>
+                    ))}
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* SKILLS */}
+        <section className="mb-24 rounded-[2rem] bg-card p-8 md:p-14">
+          <div className="mb-10">
+            <p className="text-xs font-semibold tracking-[0.3em] uppercase text-muted-foreground mb-3">— Toolbox</p>
+            <h2 className="text-3xl md:text-4xl font-bold">Technical Skills</h2>
+          </div>
+          <div className="space-y-10">
             {[
               { label: "Languages", items: ["Java", "Python", "C++", "Go", "HCL"] },
-              { label: "Technologies", items: ["Machine Learning", "Deep Learning", "Agentic AI", "Computer Vision", "Kubernetes", "CI/CD", "Terraform", "Helm", "Spring Boot"] },
-              { label: "Tools & Platforms", items: ["AWS", "TensorFlow", "PyTorch", "OpenCV", "LangChain", "LangGraph", "Docker", "Raspberry Pi", "Istio", "Kafka", "Redis", "GitHub Actions"] },
+              { label: "AI / ML", items: ["Machine Learning", "Deep Learning", "Agentic AI", "Computer Vision", "LangChain", "LangGraph", "TensorFlow", "PyTorch", "OpenCV", "BERT", "Reinforcement Learning"] },
+              { label: "Cloud & DevOps", items: ["Kubernetes", "Terraform", "Helm", "AWS", "AWS Lambda", "Docker", "CI/CD", "GitHub Actions", "Istio", "Elasticsearch"] },
+              { label: "Backend & Systems", items: ["Spring Boot", "gRPC", "Kafka", "Redis", "ROS", "Raspberry Pi", "Arduino"] },
             ].map((group) => (
               <div key={group.label}>
-                <h3 className="font-semibold mb-3 text-muted-foreground text-sm tracking-wider uppercase">{group.label}</h3>
+                <h3 className="font-semibold mb-4 text-muted-foreground text-xs tracking-[0.25em] uppercase">{group.label}</h3>
                 <div className="flex flex-wrap gap-2">
                   {group.items.map((s) => (
-                    <span key={s} className="px-4 py-2 rounded-full bg-muted text-sm font-medium hover:bg-muted/80 transition-colors cursor-default">{s}</span>
+                    <span key={s} className="px-4 py-2 rounded-full bg-muted text-sm font-medium hover:bg-foreground hover:text-background transition-colors cursor-default">{s}</span>
                   ))}
                 </div>
               </div>
@@ -86,44 +194,66 @@ const About = () => {
           </div>
         </section>
 
-        {/* Positions */}
-        <section className="mb-16">
-          <h2 className="text-3xl font-bold mb-8">Roles & Mentorship</h2>
+        {/* RESEARCH HIGHLIGHT */}
+        <section className="mb-24 rounded-[2rem] bg-gradient-to-br from-[hsl(262,83%,58%)]/10 via-[hsl(292,84%,61%)]/10 to-[hsl(38,97%,64%)]/10 p-8 md:p-14 border border-border">
+          <div className="grid md:grid-cols-3 gap-8 items-start">
+            <div>
+              <BookOpen className="w-10 h-10 mb-4" />
+              <p className="text-xs font-semibold tracking-[0.3em] uppercase text-muted-foreground mb-2">— IEEE Publication</p>
+              <h2 className="text-2xl md:text-3xl font-bold leading-tight">Natural Language Based Autonomous Navigation Vehicle</h2>
+            </div>
+            <div className="md:col-span-2 space-y-4 text-muted-foreground">
+              <p>
+                Accepted and presented at an IEEE conference, this paper combines ROS, A* path planning, OpenCV, and an agentic LangChain/LangGraph layer running on a Raspberry Pi — translating natural-language commands into autonomous physical motion.
+              </p>
+              <p>
+                The work seeded my current research interest: <span className="text-foreground font-medium">how agentic systems can reliably produce structured outputs and learn from their own mistakes</span> — explored through world models and reinforcement learning.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {/* ROLES */}
+        <section className="mb-24">
+          <div className="mb-10">
+            <p className="text-xs font-semibold tracking-[0.3em] uppercase text-muted-foreground mb-3">— Leadership</p>
+            <h2 className="text-3xl md:text-4xl font-bold">Roles & Mentorship</h2>
+          </div>
           <div className="grid md:grid-cols-2 gap-6">
-            <div className="p-6 rounded-2xl bg-card card-hover flex gap-5">
+            <div className="p-7 rounded-2xl bg-card card-hover flex gap-5">
               <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center flex-shrink-0">
                 <Users className="w-6 h-6" />
               </div>
               <div>
                 <h3 className="text-lg font-bold mb-1">Backend & DevOps Lead</h3>
-                <p className="text-muted-foreground text-sm mb-1">Junior Developers • April 2025</p>
-                <p className="text-muted-foreground text-sm">Led backend and DevOps initiatives for junior developer teams.</p>
+                <p className="text-muted-foreground text-sm mb-2">Junior Developers · April 2025</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">Led backend and DevOps initiatives, guiding junior engineers through production deployment patterns and cloud-native architecture.</p>
               </div>
             </div>
-            <div className="p-6 rounded-2xl bg-card card-hover flex gap-5">
+            <div className="p-7 rounded-2xl bg-card card-hover flex gap-5">
               <div className="w-12 h-12 rounded-xl bg-muted flex items-center justify-center flex-shrink-0">
                 <Award className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-lg font-bold mb-1">Mentor</h3>
-                <p className="text-muted-foreground text-sm mb-1">Advance Academic Center (AAC) • March 2023</p>
-                <p className="text-muted-foreground text-sm">Mentored students in advanced programming and engineering concepts.</p>
+                <h3 className="text-lg font-bold mb-1">Mentor — AAC</h3>
+                <p className="text-muted-foreground text-sm mb-2">Advanced Academic Center · March 2023</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">Guided four junior students through their first research projects. Teaching sharpened my own understanding in ways studying alone never could.</p>
               </div>
             </div>
           </div>
         </section>
 
         {/* CTA */}
-        <section className="text-center py-16 rounded-[2rem] bg-gradient-to-br from-card to-muted">
+        <section className="text-center py-16 md:py-20 rounded-[2.5rem] bg-gradient-to-br from-card to-muted">
           <GraduationCap className="w-12 h-12 mx-auto mb-6 text-muted-foreground" />
-          <h2 className="text-3xl font-bold mb-4">Let's Connect</h2>
-          <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Interested in collaborating or want to discuss technology? Reach out anytime!
+          <h2 className="text-3xl md:text-5xl font-bold mb-5 tracking-tight">Let's build, research, or just talk shop.</h2>
+          <p className="text-muted-foreground text-lg mb-10 max-w-2xl mx-auto">
+            Open to graduate research opportunities, engineering collaborations, and conversations about agentic AI, robotics, or reinforcement learning.
           </p>
           <a href="mailto:chinnollakoteshwar@gmail.com">
             <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-6 text-base hover:scale-105 transition-all">
               <Mail className="mr-2 h-5 w-5" />
-              Get in Touch
+              chinnollakoteshwar@gmail.com
             </Button>
           </a>
         </section>
