@@ -1,57 +1,102 @@
-import { Github, Linkedin, Mail } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import koteshwarImg from "@/assets/koteshwar.jpeg";
+import { Github, Linkedin, Mail, ArrowRight } from "lucide-react";
+import koteshwarImg from "@/assets/koteshwar.png";
 
 const HeroSection = () => {
   return (
-    <section className="relative rounded-[2.5rem] overflow-hidden bg-muted my-12 animate-fade-in">
-      <div className="grid md:grid-cols-2 gap-6 md:gap-12 p-6 md:p-12 lg:p-16">
-        {/* Left side - Photo */}
-        <div className="relative aspect-[3/4] md:aspect-auto rounded-[2rem] overflow-hidden animate-scale-in">
-          <img
-            src={koteshwarImg}
-            alt="Chinnolla Koteshwar"
-            className="w-full h-full object-cover object-top transition-transform duration-700 hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+    <section className="relative rounded-[2rem] overflow-hidden my-8 animate-fade-in border border-border/40">
+      {/* Dark backdrop with subtle gradient + grid pattern */}
+      <div className="absolute inset-0 bg-[hsl(220,30%,8%)]" />
+      <div
+        className="absolute inset-0 opacity-[0.07]"
+        style={{
+          backgroundImage:
+            "linear-gradient(hsl(0,0%,100%) 1px, transparent 1px), linear-gradient(90deg, hsl(0,0%,100%) 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
+        }}
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-[hsl(262,60%,20%)]/40 via-transparent to-[hsl(38,90%,50%)]/10" />
+      <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[hsl(262,83%,58%)]/20 blur-3xl" />
+
+      {/* Content grid */}
+      <div className="relative grid md:grid-cols-[1fr_1.2fr] gap-6 md:gap-10 p-6 md:p-10 items-center">
+        {/* Left: Photo */}
+        <div className="relative">
+          <div className="relative aspect-square rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+            <img
+              src={koteshwarImg}
+              alt="Chinnolla Koteshwar"
+              className="w-full h-full object-cover object-top grayscale-[20%] transition-all duration-700 hover:grayscale-0 hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+          </div>
+          {/* Accent corner mark */}
+          <div className="absolute -bottom-2 -right-2 w-16 h-1 bg-[hsl(38,92%,55%)]" />
+          <div className="absolute -bottom-2 -right-2 w-1 h-16 bg-[hsl(38,92%,55%)]" />
         </div>
 
-        {/* Right side - Content */}
-        <div className="flex flex-col justify-center space-y-6 md:space-y-8">
-          <div className="space-y-4 md:space-y-6">
-            <p className="text-sm font-medium text-muted-foreground tracking-widest uppercase animate-slide-down">Hello, I'm</p>
-            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold leading-[1.1] tracking-tight animate-slide-down">
+        {/* Right: Info */}
+        <div className="text-white space-y-5">
+          {/* Brand mark */}
+          <div className="flex items-center gap-3">
+            <span className="text-2xl font-bold tracking-[0.2em] text-white">KOTESHWAR</span>
+            <span className="h-px flex-1 bg-white/20" />
+          </div>
+
+          {/* Accent bar + title */}
+          <div className="space-y-3">
+            <div className="w-12 h-0.5 bg-[hsl(38,92%,55%)]" />
+            <h1 className="text-4xl md:text-5xl font-bold leading-[1.05] tracking-tight">
               Chinnolla Koteshwar
             </h1>
-            <p className="text-muted-foreground text-lg md:text-xl leading-relaxed max-w-xl animate-slide-up stagger-1">
-              Associate Software Engineer at Anasol Consultancy Services. IEEE-published researcher exploring the intersection of <span className="text-foreground font-medium">Agentic AI, world models, and reinforcement learning</span> — building systems that sense, reason, and act.
+            <p className="text-sm md:text-base text-white/60 tracking-[0.15em] uppercase">
+              Associate Software Engineer · IEEE Researcher
             </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 md:gap-6 pt-4 animate-slide-up stagger-2">
-            <a href="/contact">
-              <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-4 md:px-10 md:py-6 text-base font-medium transition-all hover:scale-105 w-full sm:w-auto">
-                Get in Touch
-              </Button>
-            </a>
+          {/* Description */}
+          <p className="text-white/75 text-sm md:text-base leading-relaxed max-w-xl">
+            Engineer at Anasol Consultancy Services building production-grade systems across{" "}
+            <span className="text-white font-medium">Agentic AI, robotics, and cloud infrastructure</span>.
+            Researching world models and reinforcement learning for reliable structured generation.
+          </p>
 
-            <div className="flex items-center gap-4">
-              <a href="https://github.com/KoteshwarChinnolla" target="_blank" rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full border-2 border-border hover:border-primary hover:bg-muted transition-all flex items-center justify-center hover:scale-110"
-                aria-label="GitHub">
+          {/* Socials + CTA row */}
+          <div className="flex items-center justify-between pt-3 border-t border-white/10">
+            <div className="flex items-center gap-5 text-white/70">
+              <a
+                href="https://github.com/KoteshwarChinnolla"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="hover:text-[hsl(38,92%,55%)] transition-colors"
+              >
                 <Github className="w-5 h-5" />
               </a>
-              <a href="https://linkedin.com/in/koteshwar-chinnolla-2065b4253" target="_blank" rel="noopener noreferrer"
-                className="w-12 h-12 rounded-full border-2 border-border hover:border-primary hover:bg-muted transition-all flex items-center justify-center hover:scale-110"
-                aria-label="LinkedIn">
+              <a
+                href="https://linkedin.com/in/koteshwar-chinnolla-2065b4253"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="hover:text-[hsl(38,92%,55%)] transition-colors"
+              >
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="mailto:chinnollakoteshwar@gmail.com"
-                className="w-12 h-12 rounded-full border-2 border-border hover:border-primary hover:bg-muted transition-all flex items-center justify-center hover:scale-110"
-                aria-label="Email">
+              <a
+                href="mailto:chinnollakoteshwar@gmail.com"
+                aria-label="Email"
+                className="hover:text-[hsl(38,92%,55%)] transition-colors"
+              >
                 <Mail className="w-5 h-5" />
               </a>
             </div>
+
+            <a
+              href="/contact"
+              className="group inline-flex items-center gap-2 px-5 py-2.5 bg-[hsl(38,92%,55%)] text-[hsl(220,30%,8%)] rounded-md font-semibold text-sm tracking-wide hover:bg-[hsl(38,92%,60%)] transition-all"
+            >
+              Get in Touch
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </a>
           </div>
         </div>
       </div>
