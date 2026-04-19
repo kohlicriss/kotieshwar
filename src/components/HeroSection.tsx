@@ -1,9 +1,10 @@
-import { Github, Linkedin, Mail, ArrowRight } from "lucide-react";
-import koteshwarImg from "@/assets/koteshwar.jpeg";
+import { Github, Linkedin, Mail, ArrowRight, UserRound } from "lucide-react";
+import { Link } from "react-router-dom";
+import koteshwarImg from "@/assets/koteshwar-hero.png";
 
 const HeroSection = () => {
   return (
-    <section className="relative rounded-[2rem] overflow-hidden my-8 animate-fade-in border border-border/40">
+    <section className="relative rounded-[1.75rem] md:rounded-[2rem] overflow-hidden my-6 md:my-8 animate-fade-in border border-border/40">
       {/* Dark backdrop with subtle gradient + grid pattern */}
       <div className="absolute inset-0 bg-[hsl(220,30%,8%)]" />
       <div
@@ -15,17 +16,17 @@ const HeroSection = () => {
         }}
       />
       <div className="absolute inset-0 bg-gradient-to-br from-[hsl(262,60%,20%)]/40 via-transparent to-[hsl(38,90%,50%)]/10" />
-      <div className="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-[hsl(262,83%,58%)]/20 blur-3xl" />
+      <div className="absolute -top-32 -right-32 w-72 h-72 md:w-96 md:h-96 rounded-full bg-[hsl(262,83%,58%)]/20 blur-3xl" />
 
       {/* Content grid */}
-      <div className="relative grid md:grid-cols-[1fr_1.2fr] gap-6 md:gap-10 p-6 md:p-10 items-center">
+      <div className="relative grid grid-cols-1 md:grid-cols-[1fr_1.2fr] gap-6 md:gap-10 p-5 sm:p-6 md:p-10 items-center">
         {/* Left: Photo */}
-        <div className="relative">
-          <div className="relative aspect-square rounded-xl overflow-hidden border border-white/10 shadow-2xl">
+        <div className="relative mx-auto w-full max-w-[280px] md:max-w-none">
+          <div className="relative aspect-[4/5] md:aspect-square rounded-xl overflow-hidden border border-white/10 shadow-2xl">
             <img
               src={koteshwarImg}
               alt="Chinnolla Koteshwar"
-              className="w-full h-full object-cover object-top grayscale-[20%] transition-all duration-700 hover:grayscale-0 hover:scale-105"
+              className="w-full h-full object-cover object-center transition-all duration-700 hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
           </div>
@@ -35,34 +36,34 @@ const HeroSection = () => {
         </div>
 
         {/* Right: Info */}
-        <div className="text-white space-y-5">
+        <div className="text-white space-y-4 md:space-y-5 text-center md:text-left">
           {/* Brand mark */}
-          <div className="flex items-center gap-3">
-            <span className="text-2xl font-bold tracking-[0.2em] text-white">KOTESHWAR</span>
-            <span className="h-px flex-1 bg-white/20" />
+          <div className="flex items-center gap-3 justify-center md:justify-start">
+            <span className="text-xl md:text-2xl font-bold tracking-[0.2em] text-white">KOTESHWAR</span>
+            <span className="hidden md:block h-px flex-1 bg-white/20" />
           </div>
 
           {/* Accent bar + title */}
-          <div className="space-y-3">
-            <div className="w-12 h-0.5 bg-[hsl(38,92%,55%)]" />
-            <h1 className="text-4xl md:text-5xl font-bold leading-[1.05] tracking-tight">
+          <div className="space-y-2 md:space-y-3">
+            <div className="w-12 h-0.5 bg-[hsl(38,92%,55%)] mx-auto md:mx-0" />
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-[1.05] tracking-tight">
               Chinnolla Koteshwar
             </h1>
-            <p className="text-sm md:text-base text-white/60 tracking-[0.15em] uppercase">
+            <p className="text-xs sm:text-sm md:text-base text-white/60 tracking-[0.15em] uppercase">
               Associate Software Engineer · IEEE Researcher
             </p>
           </div>
 
           {/* Description */}
-          <p className="text-white/75 text-sm md:text-base leading-relaxed max-w-xl">
+          <p className="text-white/75 text-sm md:text-base leading-relaxed max-w-xl mx-auto md:mx-0">
             Engineer at Anasol Consultancy Services building production-grade systems across{" "}
             <span className="text-white font-medium">Agentic AI, robotics, and cloud infrastructure</span>.
-            Researching world models and reinforcement learning for reliable structured generation.
+            Researching world models and reinforcement learning rooted in physics-first thinking.
           </p>
 
           {/* Socials + CTA row */}
-          <div className="flex items-center justify-between pt-3 border-t border-white/10">
-            <div className="flex items-center gap-5 text-white/70">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-4 border-t border-white/10">
+            <div className="flex items-center gap-5 text-white/70 justify-center md:justify-start">
               <a
                 href="https://github.com/KoteshwarChinnolla"
                 target="_blank"
@@ -90,13 +91,22 @@ const HeroSection = () => {
               </a>
             </div>
 
-            <a
-              href="/contact"
-              className="group inline-flex items-center gap-2 px-5 py-2.5 bg-[hsl(38,92%,55%)] text-[hsl(220,30%,8%)] rounded-md font-semibold text-sm tracking-wide hover:bg-[hsl(38,92%,60%)] transition-all"
-            >
-              Get in Touch
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-            </a>
+            <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 w-full sm:w-auto">
+              <Link
+                to="/about"
+                className="group inline-flex items-center justify-center gap-2 px-4 py-2.5 border border-white/20 text-white rounded-md font-semibold text-sm tracking-wide hover:bg-white/10 transition-all"
+              >
+                <UserRound className="w-4 h-4" />
+                About Me
+              </Link>
+              <a
+                href="/contact"
+                className="group inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-[hsl(38,92%,55%)] text-[hsl(220,30%,8%)] rounded-md font-semibold text-sm tracking-wide hover:bg-[hsl(38,92%,60%)] transition-all"
+              >
+                Get in Touch
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
+            </div>
           </div>
         </div>
       </div>
