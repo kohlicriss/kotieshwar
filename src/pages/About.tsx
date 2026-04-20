@@ -89,7 +89,7 @@ const About = () => {
             </p>
             <div className="flex flex-wrap gap-x-6 gap-y-3 pt-2 text-sm">
               <span className="flex items-center gap-2 text-muted-foreground"><MapPin className="w-4 h-4" /> Hyderabad, India</span>
-              <span className="flex items-center gap-2 text-muted-foreground"><Briefcase className="w-4 h-4" /> Anasol Consultancy</span>
+              <span className="flex items-center gap-2 text-muted-foreground"><Briefcase className="w-4 h-4" /> Associate SE — AI & DevOps · Anasol</span>
               <span className="flex items-center gap-2 text-muted-foreground"><GraduationCap className="w-4 h-4" /> B.Tech ECE · Minor in AI/ML</span>
             </div>
             <div className="flex flex-wrap gap-3 pt-4">
