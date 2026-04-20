@@ -1,41 +1,41 @@
-import { Atom, Bot, Server, Cloud, Brain, Network } from "lucide-react";
+import { Bot, MessagesSquare, Brain, Cpu, Eye, Compass } from "lucide-react";
 
 const interests = [
   {
-    icon: Atom,
-    title: "Physics & First Principles",
+    icon: Bot,
+    title: "Autonomous Robotics",
     description:
-      "Kinematics, Rigid Body Dynamics, Electrostatics — the foundation that drew me to ECE and to building systems that sense, move, and reason.",
+      "Building robots that perceive, plan, and act in the real world — ROS, A* planning, OpenCV, and edge deployment on Raspberry Pi.",
   },
   {
-    icon: Bot,
-    title: "Robotics & Autonomy",
+    icon: MessagesSquare,
+    title: "Natural Language Systems",
     description:
-      "ROS, A* path planning, OpenCV, Raspberry Pi at the edge. Built a natural-language autonomous navigation vehicle (IEEE published).",
+      "Bridging human language and machine execution — LLM tool-calling, agentic planning with LangChain & LangGraph, and structured output reliability.",
   },
   {
     icon: Brain,
-    title: "Agentic AI & Research",
+    title: "Reinforcement Learning",
     description:
-      "LangChain, LangGraph, RAG, Deep Agents. Researching world models + RL for reliable structured generation in agentic systems.",
+      "Studying how agents can learn from feedback and self-correct — applied to structured generation in agentic systems and world models.",
   },
   {
-    icon: Server,
-    title: "Backend & System Design",
+    icon: Cpu,
+    title: "Intelligent Agents",
     description:
-      "Java, Python, Go, Spring Boot, gRPC, Kafka, Redis, Elasticsearch — designing production-grade ERP and recommendation systems.",
+      "Designing deep agents and subagents that reason about intent, fetch context via RAG, and orchestrate multi-step workflows end to end.",
   },
   {
-    icon: Cloud,
-    title: "Cloud, DevOps & Kubernetes",
+    icon: Eye,
+    title: "Computer Vision",
     description:
-      "Kubernetes, Helm, Terraform, AWS Lambda, Istio, CI/CD. Author of open-source Terraform modules and Helm charts in active use.",
+      "Image processing, object detection (YOLOv8), and real-time perception pipelines — connecting what a system sees to what it decides.",
   },
   {
-    icon: Network,
-    title: "NLP & Computer Vision",
+    icon: Compass,
+    title: "Autonomous Systems",
     description:
-      "BERT pre-training from scratch, transformer pipelines, OpenCV detection — bridging perception and language for real-world systems.",
+      "Combining perception, planning, and language to build systems that operate independently — from indoor navigation to API orchestration.",
   },
 ];
 
@@ -45,14 +45,13 @@ const IntroSection = () => {
       <div className="text-center space-y-5 mb-12">
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-card/50 text-xs tracking-[0.2em] uppercase text-muted-foreground">
           <span className="w-1.5 h-1.5 rounded-full bg-[hsl(38,92%,55%)]" />
-          Interests & Focus Areas
+          Research Interests
         </div>
         <h2 className="text-3xl md:text-4xl font-bold leading-tight max-w-3xl mx-auto animate-slide-up">
-          From physics and robotics to agentic AI and cloud-scale systems.
+          Where my curiosity lives — and what I want to push forward.
         </h2>
         <p className="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto animate-slide-up stagger-1">
-          A curiosity that started with motion and electricity, and grew into building systems that
-          sense, reason, and act in the real world.
+          Six interconnected areas at the intersection of language, perception, and autonomy — the foundation for graduate research in agentic and autonomous AI.
         </p>
       </div>
 
