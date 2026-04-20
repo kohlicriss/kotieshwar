@@ -43,42 +43,121 @@ const Index = () => {
           </div>
         </section>
 
-        {/* Experience Timeline */}
-        <section className="my-20 rounded-[2.5rem] bg-card p-12 md:p-16 animate-scale-in">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-10 text-center">Experience & Education</h2>
-          
-          <div className="max-w-3xl mx-auto space-y-8">
-            {/* Experience */}
-            <div className="relative pl-8 border-l-2 border-border">
-              <div className="absolute -left-2.5 top-0 w-5 h-5 rounded-full bg-primary" />
-              <h3 className="text-xl font-bold">Associate Software Engineer</h3>
-              <p className="text-muted-foreground font-medium">Anasol Consultancy Services • Hyderabad, India</p>
-              <p className="text-sm text-muted-foreground mb-2">Apr 2025 – Present</p>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                Production-grade ERP systems, job recommendation platform. Working with Kubernetes, LangChain, Kafka, Redis, Docker, CI/CD, and AWS Lambda.
+        {/* Coursework */}
+        <section className="my-16 md:my-20 animate-fade-in">
+          <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-card/50 text-xs tracking-[0.2em] uppercase text-muted-foreground">
+              <BookOpen className="w-3.5 h-3.5" />
+              Relevant Coursework
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">The foundation under the work</h2>
+            <p className="text-muted-foreground text-base md:text-lg">
+              Six pillars from B.Tech ECE with a Minor in AI/ML — the academic groundwork behind every project.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {coursework.map((c) => (
+              <div key={c.label} className="group p-6 rounded-2xl bg-card border border-border hover:border-[hsl(38,92%,55%)]/40 transition-all card-hover">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center flex-shrink-0 group-hover:bg-[hsl(38,92%,55%)]/15 transition-colors">
+                    <c.icon className="w-5 h-5" />
+                  </div>
+                  <div className="space-y-1">
+                    <h3 className="font-bold text-base">{c.label}</h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed">{c.items}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Publication Highlight */}
+        <section className="my-16 md:my-20 rounded-[2rem] overflow-hidden relative border border-border bg-gradient-to-br from-[hsl(262,60%,12%)] via-[hsl(220,30%,8%)] to-[hsl(220,30%,8%)] text-white p-8 md:p-12 animate-scale-in">
+          <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-[hsl(38,92%,55%)]/20 blur-3xl" />
+          <div className="relative grid md:grid-cols-[auto_1fr_auto] gap-6 md:gap-10 items-center">
+            <div className="w-14 h-14 rounded-2xl bg-[hsl(38,92%,55%)]/15 border border-[hsl(38,92%,55%)]/30 flex items-center justify-center">
+              <BookOpen className="w-7 h-7 text-[hsl(38,92%,55%)]" />
+            </div>
+            <div className="space-y-2">
+              <p className="text-xs tracking-[0.25em] uppercase text-[hsl(38,92%,65%)] font-semibold">IEEE Publication · ICOCT 2025</p>
+              <h3 className="text-xl md:text-2xl font-bold leading-tight">
+                Natural Language Based Autonomous Navigation Vehicle
+              </h3>
+              <p className="text-white/65 text-sm leading-relaxed">
+                C. Koteshwar, M. D. Chaithanya, M. Abdul Kaleem, A. Vishnubhatla — DOI 10.1109/ICOCT64433.2025.11118685
               </p>
             </div>
+            <a
+              href="https://ieeexplore.ieee.org/document/11118685"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[hsl(38,92%,55%)] text-[hsl(220,30%,8%)] font-semibold text-sm hover:bg-[hsl(38,92%,60%)] transition-all"
+            >
+              Read Paper <ExternalLink className="w-4 h-4" />
+            </a>
+          </div>
+        </section>
 
-            {/* Education */}
-            <div className="relative pl-8 border-l-2 border-border">
-              <div className="absolute -left-2.5 top-0 w-5 h-5 rounded-full bg-accent" />
-              <h3 className="text-xl font-bold">B.Tech — Electronics & Communication Engineering</h3>
-              <p className="text-muted-foreground font-medium">GRIET • CGPA: 8.39</p>
-              <p className="text-sm text-muted-foreground">Graduated May 2025</p>
+        {/* Experience & Education */}
+        <section className="my-16 md:my-20 animate-fade-in">
+          <div className="text-center max-w-2xl mx-auto mb-12 space-y-3">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-card/50 text-xs tracking-[0.2em] uppercase text-muted-foreground">
+              <Briefcase className="w-3.5 h-3.5" />
+              Experience & Education
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">A timeline of work and learning</h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Experience Card */}
+            <div className="rounded-3xl bg-card border border-border p-7 md:p-8 hover:border-[hsl(262,83%,58%)]/40 transition-all card-hover">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-xl bg-[hsl(262,83%,58%)]/10 flex items-center justify-center">
+                  <Briefcase className="w-5 h-5 text-[hsl(262,83%,58%)]" />
+                </div>
+                <p className="text-xs tracking-[0.25em] uppercase font-semibold text-muted-foreground">Work Experience</p>
+              </div>
+              <h3 className="text-xl font-bold leading-tight">Associate Software Engineer — AI & DevOps</h3>
+              <p className="text-sm font-medium text-foreground/80 mt-1">Anasol Consultancy Services · Hyderabad</p>
+              <p className="text-xs text-muted-foreground mt-1 mb-4">Apr 2025 – Present</p>
+              <ul className="space-y-2.5 text-sm text-muted-foreground leading-relaxed">
+                <li className="flex gap-2"><span className="text-[hsl(262,83%,58%)] mt-1.5 w-1 h-1 rounded-full bg-current flex-shrink-0" /> Built and maintained AI-enabled backend systems for enterprise applications.</li>
+                <li className="flex gap-2"><span className="text-[hsl(262,83%,58%)] mt-1.5 w-1 h-1 rounded-full bg-current flex-shrink-0" /> Worked on recommendation systems and agent-based workflows for internal automation.</li>
+                <li className="flex gap-2"><span className="text-[hsl(262,83%,58%)] mt-1.5 w-1 h-1 rounded-full bg-current flex-shrink-0" /> Scalable infrastructure with AWS, Kubernetes, Terraform, Helm, Redis, Kafka, microservices.</li>
+                <li className="flex gap-2"><span className="text-[hsl(262,83%,58%)] mt-1.5 w-1 h-1 rounded-full bg-current flex-shrink-0" /> Authored reusable open-source Terraform modules and Helm charts in active production use.</li>
+              </ul>
             </div>
 
-            <div className="relative pl-8 border-l-2 border-border">
-              <div className="absolute -left-2.5 top-0 w-5 h-5 rounded-full bg-secondary" />
-              <h3 className="text-xl font-bold">Senior Secondary (Intermediate)</h3>
-              <p className="text-muted-foreground font-medium">NSR Impulse Junior College • 988/1000</p>
-              <p className="text-sm text-muted-foreground">June 2021</p>
-            </div>
-
-            <div className="relative pl-8 border-l-2 border-border">
-              <div className="absolute -left-2.5 top-0 w-5 h-5 rounded-full bg-muted-foreground" />
-              <h3 className="text-xl font-bold">Secondary School Certificate</h3>
-              <p className="text-muted-foreground font-medium">Matrusri High School • 9.8/10</p>
-              <p className="text-sm text-muted-foreground">March 2019</p>
+            {/* Education Card */}
+            <div className="rounded-3xl bg-card border border-border p-7 md:p-8 hover:border-[hsl(38,92%,55%)]/40 transition-all card-hover">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-xl bg-[hsl(38,92%,55%)]/10 flex items-center justify-center">
+                  <GraduationCap className="w-5 h-5 text-[hsl(38,92%,55%)]" />
+                </div>
+                <p className="text-xs tracking-[0.25em] uppercase font-semibold text-muted-foreground">Education</p>
+              </div>
+              <div className="space-y-5">
+                <div className="relative pl-5 border-l-2 border-[hsl(38,92%,55%)]">
+                  <div className="absolute -left-[7px] top-1 w-3 h-3 rounded-full bg-[hsl(38,92%,55%)]" />
+                  <h4 className="font-bold leading-tight">B.Tech — Electronics & Communication Engineering</h4>
+                  <p className="text-xs text-[hsl(38,92%,55%)] font-semibold mt-0.5">Minor: AI / ML</p>
+                  <p className="text-sm text-muted-foreground mt-1">GRIET, Hyderabad · CGPA 8.39 / 10</p>
+                  <p className="text-xs text-muted-foreground">May 2025</p>
+                </div>
+                <div className="relative pl-5 border-l-2 border-border">
+                  <div className="absolute -left-[7px] top-1 w-3 h-3 rounded-full bg-muted-foreground" />
+                  <h4 className="font-bold leading-tight">Senior Secondary (Intermediate)</h4>
+                  <p className="text-sm text-muted-foreground mt-1">NSR Impulse Junior College · 988 / 1000</p>
+                  <p className="text-xs text-muted-foreground">June 2021</p>
+                </div>
+                <div className="relative pl-5 border-l-2 border-border">
+                  <div className="absolute -left-[7px] top-1 w-3 h-3 rounded-full bg-muted-foreground" />
+                  <h4 className="font-bold leading-tight">Secondary School Certificate</h4>
+                  <p className="text-sm text-muted-foreground mt-1">Matrusri High School · 9.8 / 10</p>
+                  <p className="text-xs text-muted-foreground">March 2019</p>
+                </div>
+              </div>
             </div>
           </div>
         </section>
