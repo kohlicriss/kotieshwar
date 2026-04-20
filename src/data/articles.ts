@@ -25,14 +25,14 @@ export interface Article {
 const koteshwar = {
   name: "Chinnolla Koteshwar",
   avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&q=80",
-  bio: "Associate Software Engineer at Anasol Consultancy Services",
+  bio: "Associate Software Engineer – AI & DevOps at Anasol Consultancy Services",
 };
 
 export const articles: Article[] = [
   {
     id: "P001",
     title: "ApiSynIQ — Talk to Your APIs",
-    subtitle: "An open-source conversational layer that sits in front of your APIs",
+    subtitle: "A multi-service framework for natural language interaction with REST APIs",
     category: "AI / Agents",
     date: "Nov 2025",
     readTime: "7 min",
@@ -40,48 +40,38 @@ export const articles: Article[] = [
     author: koteshwar,
     content: {
       introduction:
-        "ApiSynIQ is an open-source framework that lets users interact with APIs through natural voice or text — no long forms, no manual JSON wrangling. Say 'Book me a ticket to Mumbai for tomorrow' and ApiSynIQ understands the intent, constructs the correct request payload, calls the right endpoint, and hands back a human-readable response. It's a conversational layer that sits in front of your APIs and makes them accessible to anyone, through any interface.",
+        "ApiSynIQ is an open-source framework that lets users interact with REST APIs using natural voice or text instead of traditional forms. Say what you want — ApiSynIQ understands the intent, identifies the right endpoint, generates a valid API request, calls it, and returns a human-readable response.",
       sections: [
         {
-          heading: "Why ApiSynIQ Exists",
+          heading: "Multi-Service Architecture",
           content:
-            "Without ApiSynIQ, users fill 10-field forms, developers wire up every UI field, API calls stay static and brittle, and voice support is a separate project. With ApiSynIQ, users say what they want, the system infers parameters from intent, semantic search finds the right endpoint, and voice ↔ text is built in from day one.",
+            "Designed a multi-service architecture (Go Gateway, Python AI Orchestrator, Java API Resolver, Java Agent SDK) that understands user intent, identifies the right endpoint, and generates valid API requests automatically — communicating over gRPC for low-latency cross-language calls.",
         },
         {
-          heading: "Layer 1 — Go Gateway: Handle Everything, Drop Nothing",
+          heading: "Semantic API Discovery with pgvector + RAG",
           content:
-            "Every request — voice or text, HTTP or WebSocket — lands in the Go Gateway first. Go's goroutine model makes concurrent request handling nearly effortless. Built with net/http for standard HTTP and gorilla/websocket for persistent streaming connections so AI tokens flow to the client in real time as they're generated. Requests are then dispatched to the AI Orchestrator over gRPC.",
+            "Implemented a semantic API discovery engine with pgvector (PostgreSQL) and Retrieval-Augmented Generation. Every API's input/output description is stored as vector embeddings, enabling the system to match human language to the correct backend service via genuine similarity search rather than brittle keyword lookup.",
         },
         {
-          heading: "Layer 2 — Python AI Orchestrator: The Brain",
+          heading: "Annotation-Based SDK",
           content:
-            "Written in Python because nothing else comes close for AI tooling. The orchestrator routes requests to the right model, reasons about which endpoint satisfies the user's intent, pulls relevant context, persists conversation history, manages LangChain and LangGraph agent logic, defines tools wired to deep agents and subagents, transcribes voice ↔ text, and converts raw JSON schemas into typed Pydantic models. It queries the API catalogue using two query types: Input Query (POST/PUT/PATCH bodies) and Output Query (GET/DELETE results).",
+            "Created a developer-friendly annotation SDK that turns existing Java APIs into conversational interfaces with minimal code changes. Annotations like @AIExposeController, @AIExposeDto, @AIExposeEpHttp, and @Describe live alongside the code, so descriptions stay in sync as APIs evolve.",
         },
         {
-          heading: "Layer 3 — Java API Resolver: The Memory",
+          heading: "Voice and Text, End to End",
           content:
-            "Written in Java for its mature, battle-tested ecosystem for database-heavy workloads. This is the RAG engine — every API's input and output descriptions are stored as vector embeddings in pgvector (PostgreSQL). When the orchestrator needs an endpoint, it runs genuine semantic similarity search, not brittle keyword lookup. It also maintains relational mappings between parameters and natural language descriptions, stores structured info about every JSON schema, and powers all CRUD operations for the SDK.",
-        },
-        {
-          heading: "Layer 4 — Java Agent SDK: The Connector",
-          content:
-            "An annotation-based SDK that lets you describe endpoints, DTOs, and parameters in plain language inside your existing Java code. Key annotations: @AIExposeController (gives a complete picture of all endpoints in a class), @AIExposeDto (describes a DTO so the AI knows what it's filling), @AIExposeEpHttp (the richest annotation — fully describes an endpoint: what it does, how to call it, when to use it, what it returns), and @Describe (fine-grained documentation for individual fields). Co-locating descriptions with code means they stay in sync as APIs evolve — no drift between docs and reality.",
-        },
-        {
-          heading: "End-to-End Request Flow",
-          content:
-            "User (voice/text) → Go Gateway (concurrent HTTP + WebSocket) → AI Orchestrator over gRPC (LangGraph agents, tool definitions, voice I/O) → API Resolver via gRPC FETCH (pgvector RAG search returns top chunks + URLs) → correct API called → response interpreted → user gets an answer. TTS streams the spoken reply back via the SPEAK gRPC channel.",
+            "The Go Gateway handles HTTP and WebSocket traffic concurrently using goroutines. The Python orchestrator transcribes voice → text, runs LangChain/LangGraph agents, and synthesizes text → voice. Tokens stream back in real time so users feel the system thinking out loud.",
         },
       ],
       conclusion:
-        "ApiSynIQ is open source under Apache-2.0 and built for developers who believe APIs should talk back. The framework currently ships a Java SDK with more languages on the roadmap.",
+        "Open-sourced under Apache-2.0, ApiSynIQ is built for developers who believe APIs should talk back. Java SDK ships today; more languages on the roadmap.",
     },
-    tags: ["Open Source", "LangGraph", "Go", "Python", "Java", "gRPC", "pgvector", "RAG"],
+    tags: ["Go", "Python", "Java", "gRPC", "PostgreSQL", "pgvector", "LangChain", "LangGraph"],
   },
   {
     id: "P002",
     title: "Natural Language Based Autonomous Navigation Vehicle",
-    subtitle: "IEEE-published robotic vehicle that understands, plans, and asks for help",
+    subtitle: "IEEE-published autonomous vehicle that interprets spoken commands into navigation workflows",
     category: "Robotics / AI",
     date: "Aug 2025",
     readTime: "8 min",
@@ -89,155 +79,130 @@ export const articles: Article[] = [
     author: koteshwar,
     content: {
       introduction:
-        "A robotic vehicle that understands natural language, transports objects between locations, responds to user inputs, asks task-specific questions when it needs human help, and executes complex multi-step workflows flawlessly. Published at the 2025 International Conference on Computing Technologies (ICOCT), Bengaluru — DOI 10.1109/ICOCT64433.2025.11118685.",
+        "An autonomous vehicle that interprets spoken or text commands into task-specific navigation workflows in indoor environments. Published at the 2025 International Conference on Computing Technologies (ICOCT), Bengaluru — DOI 10.1109/ICOCT64433.2025.11118685.",
       sections: [
         {
-          heading: "Understanding Natural Language — Four LLM Roles",
+          heading: "LLM-Based Planning & Response",
           content:
-            "Accurate language understanding is the crucial first step. The system uses LLMs with tool-calling in four distinct roles: (1) Tool-calling LLM — generates task-specific workflows; (2) Input Classification LLM — decides whether the user wants a task performed or is asking a general question (current position, task history, capabilities); (3) Orchestrator LLM — restructures user input so downstream planning produces perfect plans; (4) Responding LLM — handles conversational replies that aren't location-specific.",
+            "Integrated LLM-based planning and response modules to interpret user intent, ask clarification questions when context is missing, and manage multi-step tasks dynamically — using four specialised LLM roles for tool-calling, input classification, orchestration, and conversational responses.",
         },
         {
-          heading: "Transporting Things — A* + Decoder",
+          heading: "A* Path Planning with Custom Decoder",
           content:
-            "Path-finding combines the A* algorithm with a custom decoder. The environment map is treated as a graph: obstacles are 1s, free paths are 0s. A* finds the shortest path between the source and destination nodes selected by the LLM. The decoder then translates A*'s output into precise instructions Arduino can execute, so the vehicle follows the path without directional errors.",
+            "Implemented A* path planning over a grid representation of the environment (obstacles as 1s, free paths as 0s) with a custom motion decoder that translates the path into precise instructions Arduino can execute — enabling accurate, obstacle-aware navigation and object delivery between locations.",
         },
         {
-          heading: "Responding to User Inputs",
+          heading: "Complex Workflow Handling",
           content:
-            "Three scenarios route through the Responding LLM: the vehicle is busy with another task when a new request arrives; the requested location doesn't exist in the mapped environment; or the user just wants to clarify something (where it is, what it has done, what it can do). In every case the input is redirected to the Responding LLM which generates an appropriate reply instead of a navigation plan.",
+            "Handled real-world workflow complexity: backtracking for dependent sub-tasks (e.g. 'no coffee powder, fetch it from the storeroom first') and serialisation for independent tasks arriving mid-execution. The vehicle also asks humans for help when a task requires hands it doesn't have.",
         },
         {
-          heading: "Asking Task-Specific Questions",
+          heading: "Edge Deployment",
           content:
-            "The vehicle travels, transports, and speaks — it doesn't manipulate objects itself. So whenever a task needs hands, it asks for a human. Example: asked to bring coffee from the kitchen to the bedroom, it drives to the kitchen, requests someone to make the coffee, waits until it's ready, then carries it to the bedroom.",
-        },
-        {
-          heading: "Complex Workflows — Backtracking & Serialisation",
-          content:
-            "Case 1 — Task in Task (dependent): mid-task, the vehicle may receive a sub-task. If 'no coffee powder, fetch it from the storeroom first' is said at the kitchen, it backtracks: detours to the storeroom, returns the powder, waits for coffee, then resumes the original delivery to the bedroom. Case 2 — Task After Task (independent): if a new unrelated task arrives mid-execution (fetch the bat from the storeroom to the park), it serialises tasks and completes them one after the other.",
-        },
-        {
-          heading: "Running It Locally with Docker",
-          content:
-            "Repo: github.com/KoteshwarChinnolla/A_robotic_vehicle. Clone, create a .env with GROQ_API_KEY, GROQ_MODEL (defaults to llama-3.3-70b-versatile), and optionally ARDUINO_PORT (e.g. COM7 on Windows, /dev/ttyUSB0 on Linux), then run `docker compose up --build`. A prebuilt image is also published as koti21/robotic_car:v0.0.1 for both local-only and Raspberry-Pi-with-Arduino setups. The UI is served at http://localhost:5000/ui/ where you can pick an image map and either type or speak your instructions.",
+            "Runs entirely at the edge on a Raspberry Pi with Docker, using OpenCV for perception and Groq-hosted LLMs for language understanding. A web UI at http://localhost:5000/ui/ accepts typed or spoken instructions over an environment image.",
         },
       ],
       conclusion:
-        "Co-authored with M. D. Chaithanya, M. Abdul Kaleem, and A. Vishnubhatla, the paper combines LLM tool-calling, A* planning, and human-in-the-loop robotics into a single voice-driven autonomous vehicle. Read the IEEE publication at ieeexplore.ieee.org/document/11118685.",
+        "Co-authored with M. D. Chaithanya, M. Abdul Kaleem, and A. Vishnubhatla. Published at IEEE ICOCT 2025 for its approach to combining conversational AI with robotic task execution. Read the paper at ieeexplore.ieee.org/document/11118685.",
     },
-    tags: ["IEEE", "LLM", "A*", "LangChain", "Raspberry Pi", "Arduino", "Docker", "Groq"],
+    tags: ["IEEE", "Python", "Raspberry Pi", "Arduino", "OpenCV", "A*", "Docker", "LLMs"],
   },
   {
     id: "P003",
-    title: "Open-Source Helm Charts & Terraform Modules",
-    subtitle: "Production-grade infrastructure as code for the community",
+    title: "Cloud Infrastructure Automation Toolkit",
+    subtitle: "Reusable Terraform modules and Helm charts for production-grade cloud deployments",
     category: "DevOps / Cloud",
-    date: "June 2025",
+    date: "2025",
     readTime: "4 min",
     image: "https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=1920&q=80",
     author: koteshwar,
     content: {
-      introduction: "Maintaining open-source repositories with production-grade Helm charts and Terraform modules for managing AWS workloads and Kubernetes deployments.",
+      introduction:
+        "An open-source toolkit of reusable Terraform modules and Helm charts that automate cloud infrastructure provisioning and Kubernetes deployments across AWS environments.",
       sections: [
         {
-          heading: "Helm Charts",
-          content: "Production-grade Helm charts for Kafka, Redis, Certificate Authorities, and more. Each chart follows best practices with configurable values, health checks, resource limits, and security contexts.",
+          heading: "Production-Ready Templates",
+          content:
+            "Designed production-ready templates for EKS, ECS, VPC, RDS, ALB, Kafka, Redis, and microservices — reducing repetitive setup for scalable systems and giving teams a sane starting point for new workloads.",
         },
         {
-          heading: "Terraform Modules",
-          content: "Reusable Terraform modules for managing AWS workloads including Kubernetes clusters, S3 buckets, web hosting lifecycle management using CloudFront, S3, and Route53.",
+          heading: "GitOps with ArgoCD",
+          content:
+            "Integrated GitOps workflows with ArgoCD and Helm for consistent, version-controlled deployments from infrastructure to application layer — every change is auditable and reversible.",
         },
         {
-          heading: "Infrastructure Patterns",
-          content: "Established patterns for CI/CD pipeline integration, secret management, and multi-environment deployments. All modules are thoroughly documented and tested.",
+          heading: "Service Mesh & Observability",
+          content:
+            "Wired Istio for service-to-service traffic management and mTLS, with hooks for metrics and logging so production clusters stay observable from day one.",
         },
       ],
-      conclusion: "These open-source contributions help teams adopt infrastructure as code best practices and accelerate their cloud-native journey.",
+      conclusion:
+        "Actively used in real deployments. Modules are open source for the community to fork, extend, and harden further.",
     },
-    tags: ["Terraform", "Kubernetes", "AWS", "Helm", "Open Source"],
+    tags: ["Terraform", "Helm", "Kubernetes", "AWS", "ArgoCD", "Istio"],
   },
   {
     id: "P004",
-    title: "Production ERP Systems & Job Platform",
-    subtitle: "Enterprise-scale backend services at Anasol Consultancy",
-    category: "Backend",
-    date: "Apr 2025",
-    readTime: "4 min",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1920&q=80",
+    title: "NLP Architecture Evolution Study",
+    subtitle: "From Bag of Words to BERT — building each technique from the ground up",
+    category: "ML / NLP",
+    date: "2024",
+    readTime: "5 min",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1920&q=80",
     author: koteshwar,
     content: {
-      introduction: "Contributing to production-grade ERP systems and a job recommendation platform at Anasol Consultancy Services, building and deploying scalable backend services.",
+      introduction:
+        "A trio of connected NLP projects covering spam classification, BERT pre-training from scratch, and sentiment analysis — built to understand the evolution from statistical methods to deep contextual learning, not just to use them as black-box libraries.",
       sections: [
         {
-          heading: "ERP System Development",
-          content: "Working on production-grade ERP systems including various products and software modules. Focused on reliability, scalability, and maintainability of enterprise software.",
+          heading: "Statistical to Contextual",
+          content:
+            "Implemented and compared Bag of Words, TF-IDF, Word2Vec, Bi-LSTM, and BERT, observing how each architecture improved language understanding and prediction accuracy across the same tasks.",
         },
         {
-          heading: "Scalable Backend Architecture",
-          content: "Built services using Kubernetes for orchestration, Kafka for event streaming, Redis for caching, and Docker for containerization. Implemented CI/CD pipelines for automated testing and deployment.",
+          heading: "BERT Pre-Training from Scratch",
+          content:
+            "Pre-trained a BERT model from scratch to internalize masked language modelling and next-sentence prediction — demystifying how transformer encoders actually learn contextual representations.",
         },
         {
-          heading: "AWS Lambda & Serverless",
-          content: "Leveraged AWS Lambda for serverless functions to handle specific workloads efficiently, reducing infrastructure costs while maintaining high availability.",
+          heading: "Built to Study, Not to Ship",
+          content:
+            "Each model was built from the ground up to study internal behaviour and trade-offs — giving me an intuition for which architecture fits which problem, instead of defaulting to whatever is in fashion.",
         },
       ],
-      conclusion: "This role combines hands-on engineering with production systems and cutting-edge cloud technologies at enterprise scale.",
+      conclusion:
+        "This study became the foundation for later work on agentic systems and structured generation — the same questions about representation and context show up everywhere.",
     },
-    tags: ["Kubernetes", "Kafka", "Redis", "AWS Lambda", "CI/CD", "Docker"],
+    tags: ["Python", "TensorFlow", "PyTorch", "Scikit-learn", "Transformers", "BERT", "RNN"],
   },
   {
     id: "P005",
-    title: "IEEE Research: NL-Based Autonomous Navigation",
-    subtitle: "Published research on natural language vehicle control",
-    category: "Research",
-    date: "June 2025",
+    title: "OpenCV Computer Vision Learning Repository",
+    subtitle: "A practical repository exploring core image processing and real-time object detection",
+    category: "Computer Vision",
+    date: "2024",
     readTime: "3 min",
     image: "https://images.unsplash.com/photo-1532153975070-2e9ab71f1b14?w=1920&q=80",
     author: koteshwar,
     content: {
-      introduction: "Published IEEE research paper on 'Natural Language Based Autonomous Navigation Vehicle' — combining NLP, path planning, and robotics for human-robot interaction.",
+      introduction:
+        "A practical computer vision repository exploring core image processing concepts and real-time object detection workflows — built to internalize CV fundamentals through hands-on implementation.",
       sections: [
         {
-          heading: "Research Problem",
-          content: "Current autonomous vehicles require specialized programming interfaces. This research explores using natural language as the primary control mechanism, making robot operation accessible to non-technical users.",
+          heading: "Core Image Processing",
+          content:
+            "Worked through filters, edge detection, contours, morphological operations, and colour-space transforms with OpenCV and NumPy — the building blocks every higher-level CV system depends on.",
         },
         {
-          heading: "Methodology",
-          content: "Combined large language models with A* path planning and physical motor control systems. The pipeline processes speech input, extracts navigation intent, plans optimal paths, and executes physical movements.",
+          heading: "Real-Time Object Detection",
+          content:
+            "Implemented real-time detection workflows with YOLOv8, including video stream processing, bounding-box visualisation, and lightweight tracking — a base for deployment on edge devices like the Raspberry Pi.",
         },
       ],
-      conclusion: "The research demonstrates that natural language interfaces can effectively control autonomous vehicles, opening doors for accessible human-robot interaction.",
+      conclusion:
+        "The hands-on grounding from this repo directly fed into the perception layer of the autonomous navigation vehicle.",
     },
-    tags: ["IEEE", "Research", "NLP", "Autonomous Navigation", "Robotics"],
-  },
-  {
-    id: "P006",
-    title: "Machine Learning & Computer Vision Projects",
-    subtitle: "Deep learning applications with TensorFlow and PyTorch",
-    category: "ML / CV",
-    date: "2023 – 2024",
-    readTime: "4 min",
-    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1920&q=80",
-    author: koteshwar,
-    content: {
-      introduction: "A collection of machine learning and computer vision projects built during academic studies and personal exploration, using TensorFlow, PyTorch, and OpenCV.",
-      sections: [
-        {
-          heading: "Deep Learning Models",
-          content: "Built and trained various deep learning models for classification, object detection, and sequence prediction tasks using TensorFlow and PyTorch frameworks.",
-        },
-        {
-          heading: "Computer Vision Applications",
-          content: "Developed computer vision applications using OpenCV for image processing, feature extraction, and real-time object tracking.",
-        },
-        {
-          heading: "Tools & Frameworks",
-          content: "Extensive work with TensorFlow, PyTorch, OpenCV, NumPy, and scikit-learn. Experience with data preprocessing, model training, hyperparameter tuning, and deployment.",
-        },
-      ],
-      conclusion: "These projects built a strong foundation in ML/DL that now powers the Agentic AI systems in production work.",
-    },
-    tags: ["Machine Learning", "Deep Learning", "TensorFlow", "PyTorch", "OpenCV"],
+    tags: ["Python", "OpenCV", "YOLOv8", "NumPy"],
   },
 ];
 

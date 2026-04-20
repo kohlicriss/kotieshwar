@@ -3,9 +3,19 @@ import ArticleCard from "@/components/ArticleCard";
 import HeroSection from "@/components/HeroSection";
 import IntroSection from "@/components/IntroSection";
 import { articles } from "@/data/articles";
+import { Briefcase, GraduationCap, BookOpen, ExternalLink, Cpu, Brain, Database, Sigma, Radio, Wrench } from "lucide-react";
+
+const coursework = [
+  { icon: Brain, label: "AI & Machine Learning", items: "Artificial Neural Networks · Machine Learning · Python" },
+  { icon: Cpu, label: "Computer Science", items: "Data Structures · OOP (Java) · Cloud Computing · DBMS" },
+  { icon: Radio, label: "IoT & Embedded Systems", items: "Internet of Things · Microcontrollers" },
+  { icon: Sigma, label: "Mathematics", items: "Linear Algebra · Differential Calculus · Probability & Stochastic Processes" },
+  { icon: Wrench, label: "Control & Signals", items: "Linear Control Systems · Digital Signal Processing · Signals & Systems" },
+  { icon: Database, label: "Core Electronics", items: "Analog & Digital Circuits · VLSI · Networks" },
+];
 
 const Index = () => {
-  const featuredArticles = articles.slice(0, 6);
+  const featuredArticles = articles;
 
   return (
     <div className="min-h-screen bg-background animate-fade-in">
