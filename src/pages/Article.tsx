@@ -292,22 +292,17 @@ const Article = () => {
             </div>
           </div>
 
-          {/* Newsletter CTA */}
+          {/* CTA */}
           <div className="mb-16 rounded-2xl bg-card p-8 md:p-12 text-center">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">Enjoyed this article?</h3>
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">Want to talk about this project?</h3>
             <p className="text-muted-foreground mb-6">
-              Subscribe to receive more insights like this directly in your inbox.
+              I'm always up for a conversation about agentic AI, robotics, and cloud infrastructure.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="flex-1 px-4 py-3 rounded-full border border-input bg-background focus:outline-none focus:ring-2 focus:ring-ring"
-              />
+            <a href="mailto:chinnollakoteshwar@gmail.com">
               <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8">
-                Subscribe
+                Email Me
               </Button>
-            </div>
+            </a>
           </div>
         </article>
 
