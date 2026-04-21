@@ -49,7 +49,7 @@ const Header = () => {
             <a href="/" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
               Home
             </a>
-            <a href="/#projects" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
+            <a href="/projects" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
               Projects
             </a>
             <a href="/about" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
@@ -98,7 +98,7 @@ const Header = () => {
               <a href="/" className="text-sm font-medium hover:text-accent transition-colors">
                 Home
               </a>
-              <a href="/#projects" className="text-sm font-medium hover:text-accent transition-colors">
+              <a href="/projects" className="text-sm font-medium hover:text-accent transition-colors">
                 Projects
               </a>
               <a href="/about" className="text-sm font-medium hover:text-accent transition-colors">

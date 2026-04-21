@@ -3,7 +3,8 @@ import ArticleCard from "@/components/ArticleCard";
 import HeroSection from "@/components/HeroSection";
 import IntroSection from "@/components/IntroSection";
 import { articles } from "@/data/articles";
-import { Briefcase, GraduationCap, BookOpen, ExternalLink, Cpu, Brain, Database, Sigma, Radio, Wrench } from "lucide-react";
+import { Briefcase, GraduationCap, BookOpen, ExternalLink, Cpu, Brain, Database, Sigma, Radio, Wrench, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const coursework = [
   { icon: Brain, label: "AI & Machine Learning", items: "Artificial Neural Networks · Machine Learning · Python" },
@@ -32,6 +33,13 @@ const Index = () => {
         <section id="projects" className="py-12">
           <div className="flex items-center justify-between mb-12 animate-slide-up">
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Projects & Work</h2>
+            <Link
+              to="/projects"
+              className="hidden sm:inline-flex items-center gap-2 text-sm font-semibold px-4 py-2 rounded-full border border-border hover:border-[hsl(38,92%,55%)]/60 hover:bg-card transition-all group"
+            >
+              View all projects
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            </Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -40,6 +48,15 @@ const Index = () => {
                 <ArticleCard {...article} size="small" />
               </div>
             ))}
+          </div>
+
+          <div className="mt-10 text-center sm:hidden">
+            <Link
+              to="/projects"
+              className="inline-flex items-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-full border border-border hover:border-[hsl(38,92%,55%)]/60 hover:bg-card transition-all"
+            >
+              View all projects <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </section>
 
@@ -193,7 +210,7 @@ const Index = () => {
               <h3 className="font-semibold mb-4">Navigate</h3>
               <ul className="space-y-2 text-sm text-muted-foreground">
                 <li><a href="/" className="hover:text-accent transition-colors">Home</a></li>
-                <li><a href="/#projects" className="hover:text-accent transition-colors">Projects</a></li>
+                <li><a href="/projects" className="hover:text-accent transition-colors">Projects</a></li>
                 <li><a href="/about" className="hover:text-accent transition-colors">About</a></li>
                 <li><a href="/contact" className="hover:text-accent transition-colors">Contact</a></li>
               </ul>

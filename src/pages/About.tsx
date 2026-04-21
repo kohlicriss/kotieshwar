@@ -111,9 +111,9 @@ const About = () => {
           <Quote className="absolute top-6 left-6 w-20 h-20 text-foreground/5" />
           <blockquote className="relative max-w-3xl mx-auto text-center">
             <p className="text-2xl md:text-3xl lg:text-4xl font-serif italic leading-snug text-foreground">
-              "The gap between what textbooks describe and what systems actually do — that gap became my classroom."
+              "Give what ever it takes !!"
             </p>
-            <footer className="mt-6 text-sm tracking-widest uppercase text-muted-foreground">— On joining the Advanced Academic Center, Year 1</footer>
+            <footer className="mt-6 text-sm tracking-widest uppercase text-muted-foreground">— Personal Mantra</footer>
           </blockquote>
         </section>
 
