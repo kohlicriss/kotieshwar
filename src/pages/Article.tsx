@@ -2,7 +2,7 @@ import { useParams, Navigate } from "react-router-dom";
 import Header from "@/components/Header";
 import ArticleCard from "@/components/ArticleCard";
 import { getArticleById, getRelatedArticles } from "@/data/articles";
-import { Facebook, Twitter, Linkedin, Link2, ArrowLeft } from "lucide-react";
+import { Facebook, Twitter, Linkedin, Link2, ArrowLeft, Sparkles, AlertTriangle, CheckCircle2, ExternalLink, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
@@ -135,6 +135,19 @@ const Article = () => {
 
           {/* Article Content */}
           <div className="prose prose-lg max-w-none mb-16 animate-slide-up stagger-2">
+            {/* Motivation block */}
+            <div className="not-prose mb-10 rounded-3xl border border-border bg-gradient-to-br from-[hsl(262,60%,12%)]/5 via-card to-card p-6 md:p-8">
+              <div className="flex items-center gap-2 mb-3">
+                <Sparkles className="w-4 h-4 text-[hsl(38,92%,55%)]" />
+                <span className="text-xs tracking-[0.25em] uppercase font-semibold text-[hsl(38,92%,55%)]">
+                  Motivation
+                </span>
+              </div>
+              <p className="text-base md:text-lg leading-relaxed text-foreground/90">
+                {article.motivation}
+              </p>
+            </div>
+
             <p className="text-lg leading-relaxed text-muted-foreground mb-8">
               {article.content.introduction}
             </p>
@@ -147,6 +160,84 @@ const Article = () => {
                 </p>
               </div>
             ))}
+
+            {/* Challenges & Outcomes */}
+            {(article.challenges?.length || article.outcomes?.length) && (
+              <div className="not-prose grid md:grid-cols-2 gap-5 my-12">
+                {article.challenges && article.challenges.length > 0 && (
+                  <div className="rounded-2xl border border-border bg-card p-6">
+                    <div className="flex items-center gap-2 mb-4">
+                      <AlertTriangle className="w-4 h-4 text-[hsl(38,92%,55%)]" />
+                      <span className="text-xs tracking-[0.25em] uppercase font-semibold text-muted-foreground">
+                        Challenges
+                      </span>
+                    </div>
+                    <ul className="space-y-3">
+                      {article.challenges.map((c, i) => (
+                        <li key={i} className="text-sm text-muted-foreground leading-relaxed flex gap-3">
+                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[hsl(38,92%,55%)] flex-shrink-0" />
+                          <span>{c}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {article.outcomes && article.outcomes.length > 0 && (
+                  <div className="rounded-2xl border border-border bg-card p-6">
+                    <div className="flex items-center gap-2 mb-4">
+                      <CheckCircle2 className="w-4 h-4 text-[hsl(262,83%,58%)]" />
+                      <span className="text-xs tracking-[0.25em] uppercase font-semibold text-muted-foreground">
+                        Outcomes
+                      </span>
+                    </div>
+                    <ul className="space-y-3">
+                      {article.outcomes.map((o, i) => (
+                        <li key={i} className="text-sm text-muted-foreground leading-relaxed flex gap-3">
+                          <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[hsl(262,83%,58%)] flex-shrink-0" />
+                          <span>{o}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+              </div>
+            )}
+
+            {/* Tech Stack */}
+            {article.techStack?.length > 0 && (
+              <div className="not-prose my-10">
+                <div className="flex items-center gap-2 mb-4">
+                  <Wrench className="w-4 h-4 text-muted-foreground" />
+                  <span className="text-xs tracking-[0.25em] uppercase font-semibold text-muted-foreground">
+                    Tech Stack
+                  </span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {article.techStack.map((t) => (
+                    <span key={t} className="px-3 py-1.5 rounded-full bg-muted text-xs font-medium">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Links */}
+            {article.links && article.links.length > 0 && (
+              <div className="not-prose my-10 flex flex-wrap gap-3">
+                {article.links.map((l) => (
+                  <a
+                    key={l.url}
+                    href={l.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:scale-105 transition-all"
+                  >
+                    {l.label} <ExternalLink className="w-4 h-4" />
+                  </a>
+                ))}
+              </div>
+            )}
 
             <div className="mt-12 p-6 rounded-2xl bg-muted border-l-4 border-accent">
               <p className="text-lg leading-relaxed italic text-foreground">
