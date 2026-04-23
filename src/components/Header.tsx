@@ -52,6 +52,12 @@ const Header = () => {
             <a href="/projects" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
               Projects
             </a>
+            <a href="/architecture" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
+              Architecture
+            </a>
+            <a href="/blogs" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
+              Blogs
+            </a>
             <a href="/about" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
               About
             </a>
@@ -100,6 +106,12 @@ const Header = () => {
               </a>
               <a href="/projects" className="text-sm font-medium hover:text-accent transition-colors">
                 Projects
+              </a>
+              <a href="/architecture" className="text-sm font-medium hover:text-accent transition-colors">
+                Architecture
+              </a>
+              <a href="/blogs" className="text-sm font-medium hover:text-accent transition-colors">
+                Blogs
               </a>
               <a href="/about" className="text-sm font-medium hover:text-accent transition-colors">
                 About
