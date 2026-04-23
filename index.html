@@ -10,7 +10,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700;900&display=swap" rel="stylesheet">
 
-    
+    <script>
+      // Apply theme synchronously before paint to avoid white/dark flash
+      (function () {
+        try {
+          var saved = localStorage.getItem("theme");
+          var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+          var isDark = saved === "dark" || (!saved && prefersDark);
+          var root = document.documentElement;
+          if (isDark) root.classList.add("dark");
+          // Set background color immediately so the first paint matches the theme
+          root.style.backgroundColor = isDark ? "hsl(0, 0%, 10%)" : "hsl(36, 44%, 96%)";
+          root.style.colorScheme = isDark ? "dark" : "light";
+        } catch (e) {}
+      })();
+    </script>
+
     
     <meta property="og:type" content="website" />
     <meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/84f37279-c299-4cc2-ab55-41092cb49216/id-preview-fedb881a--8bcfa664-27db-43b9-80f5-ccff4add5cc6.lovable.app-1774963393734.png">
