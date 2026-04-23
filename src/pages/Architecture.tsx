@@ -42,6 +42,34 @@ const slides: Slide[] = [
   },
 ];
 
+// NOTE: Replace these placeholder srcs with the real diagrams later.
+// TODO[image]: drop Kafka diagram into src/assets/arch-kafka.png and import it here.
+// TODO[image]: drop Redis diagram into src/assets/arch-redis.png and import it here.
+// TODO[image]: drop Security diagram into src/assets/arch-security.png and import it here.
+slides.push(
+  {
+    src: archEcommerce, // TODO[image]: replace with Kafka diagram
+    title: "Event Streaming with Kafka",
+    caption: "Topics · Partitions · Consumer Groups · Exactly-Once",
+    description:
+      "How I model topics, partitions and consumer groups for high-throughput event streaming with replay safety and exactly-once semantics.",
+  },
+  {
+    src: archNotification, // TODO[image]: replace with Redis diagram
+    title: "Distributed Caching with Redis",
+    caption: "Cluster · Sharding · Pub/Sub · Streams",
+    description:
+      "Redis as the hot path — sharded clusters for cache, pub/sub for fan-out, and streams for durable consumer-group semantics.",
+  },
+  {
+    src: archProduction, // TODO[image]: replace with Security diagram
+    title: "Zero-Trust Security Framework",
+    caption: "mTLS · OAuth2 · Policy · Secrets Rotation",
+    description:
+      "Every service authenticates every request. mTLS between pods, OAuth2 at the edge, policy via OPA, and short-lived rotated secrets.",
+  },
+);
+
 const Architecture = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
