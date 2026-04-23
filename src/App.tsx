@@ -8,6 +8,8 @@ import Article from "./pages/Article";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Projects from "./pages/Projects";
+import Architecture from "./pages/Architecture";
+import Blogs from "./pages/Blogs";
 import NotFound from "./pages/NotFound";
 import FloatingAboutButton from "./components/FloatingAboutButton";
 
@@ -23,6 +25,8 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/architecture" element={<Architecture />} />
+          <Route path="/blogs" element={<Blogs />} />
           <Route path="/article/:id" element={<Article />} />
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
