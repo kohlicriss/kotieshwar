@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Moon, Sun } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
 const Header = () => {
@@ -36,34 +37,22 @@ const Header = () => {
         <div className="flex items-center justify-between h-14 sm:h-16 pill-nav px-4 sm:px-6">
           {/* Logo */}
           <div className="flex items-center min-w-0">
-            <a href="/" className="flex items-center gap-1.5 sm:gap-2">
+            <Link to="/" className="flex items-center gap-1.5 sm:gap-2">
               <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-br from-[hsl(262,83%,58%)] via-[hsl(292,84%,61%)] to-[hsl(38,97%,64%)] rounded-lg flex items-center justify-center flex-shrink-0 shadow-lg shadow-[hsl(292,84%,61%,0.3)]">
                 <span className="text-white font-bold text-base sm:text-lg">K</span>
               </div>
               <span className="text-base sm:text-xl font-bold font-serif truncate bg-gradient-to-r from-[hsl(262,83%,58%)] via-[hsl(292,84%,61%)] to-[hsl(38,97%,64%)] bg-clip-text text-transparent">Koteshwar</span>
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-2">
-            <a href="/" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
-              Home
-            </a>
-            <a href="/projects" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
-              Projects
-            </a>
-            <a href="/architecture" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
-              Architecture
-            </a>
-            <a href="/blogs" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
-              Blogs
-            </a>
-            <a href="/about" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
-              About
-            </a>
-            <a href="/contact" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">
-              Contact
-            </a>
+            <Link to="/" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">Home</Link>
+            <Link to="/projects" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">Projects</Link>
+            <Link to="/architecture" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">Architecture</Link>
+            <Link to="/blogs" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">Blogs</Link>
+            <Link to="/about" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">About</Link>
+            <Link to="/contact" className="text-sm font-medium hover:bg-muted/60 rounded-full px-4 py-2 transition-all">Contact</Link>
           </nav>
 
           {/* Actions */}
@@ -101,24 +90,12 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-border animate-fade-in">
             <nav className="flex flex-col gap-4">
-              <a href="/" className="text-sm font-medium hover:text-accent transition-colors">
-                Home
-              </a>
-              <a href="/projects" className="text-sm font-medium hover:text-accent transition-colors">
-                Projects
-              </a>
-              <a href="/architecture" className="text-sm font-medium hover:text-accent transition-colors">
-                Architecture
-              </a>
-              <a href="/blogs" className="text-sm font-medium hover:text-accent transition-colors">
-                Blogs
-              </a>
-              <a href="/about" className="text-sm font-medium hover:text-accent transition-colors">
-                About
-              </a>
-              <a href="/contact" className="text-sm font-medium hover:text-accent transition-colors">
-                Contact
-              </a>
+              <Link to="/" onClick={() => setIsMenuOpen(false)} className="text-sm font-medium hover:text-accent transition-colors">Home</Link>
+              <Link to="/projects" onClick={() => setIsMenuOpen(false)} className="text-sm font-medium hover:text-accent transition-colors">Projects</Link>
+              <Link to="/architecture" onClick={() => setIsMenuOpen(false)} className="text-sm font-medium hover:text-accent transition-colors">Architecture</Link>
+              <Link to="/blogs" onClick={() => setIsMenuOpen(false)} className="text-sm font-medium hover:text-accent transition-colors">Blogs</Link>
+              <Link to="/about" onClick={() => setIsMenuOpen(false)} className="text-sm font-medium hover:text-accent transition-colors">About</Link>
+              <Link to="/contact" onClick={() => setIsMenuOpen(false)} className="text-sm font-medium hover:text-accent transition-colors">Contact</Link>
               <a href="https://github.com/KoteshwarChinnolla" target="_blank" rel="noopener noreferrer">
                 <Button className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full w-full">
                   GitHub
