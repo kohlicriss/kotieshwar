@@ -1,66 +1,7 @@
 import { Link } from "react-router-dom";
-import { ArrowLeft, ArrowUpRight, BookOpen, Clock } from "lucide-react";
+import { ArrowLeft, ArrowUpRight, BookOpen, Clock, ExternalLink } from "lucide-react";
 import Header from "@/components/Header";
-
-type Blog = {
-  slug: string;
-  title: string;
-  excerpt: string;
-  category: string;
-  readTime: string;
-  status: "coming-soon" | "published";
-};
-
-const blogs: Blog[] = [
-  {
-    slug: "how-machines-learn",
-    title: "How do Machines Learn?",
-    excerpt: "A from-the-ground-up look at how machine learning workloads are trained, optimised, and shipped to production.",
-    category: "Machine Learning",
-    readTime: "8 min read",
-    status: "coming-soon",
-  },
-  {
-    slug: "your-companion",
-    title: "Your Companion: Building an AI Chatbot",
-    excerpt: "Step-by-step guide on architecting, training and deploying a conversational AI assistant end to end.",
-    category: "AI Engineering",
-    readTime: "12 min read",
-    status: "coming-soon",
-  },
-  {
-    slug: "forward-propagation",
-    title: "Forward Propagation, Demystified",
-    excerpt: "An in-depth look at feed-forward neural networks — the math, the intuition, and the code.",
-    category: "Deep Learning",
-    readTime: "10 min read",
-    status: "coming-soon",
-  },
-  {
-    slug: "notification-system",
-    title: "Notification Systems & Live Scoring",
-    excerpt: "Redis Pub/Sub, SSE and consumer groups — designing real-time notification systems for dashboards at scale.",
-    category: "System Design",
-    readTime: "9 min read",
-    status: "coming-soon",
-  },
-  {
-    slug: "factory-method",
-    title: "Factory Method Design Pattern",
-    excerpt: "A conceptual breakdown of the Factory Method pattern using a real-world example written in Go.",
-    category: "Design Patterns",
-    readTime: "6 min read",
-    status: "coming-soon",
-  },
-  {
-    slug: "agentic-ai",
-    title: "Agentic AI with LangGraph",
-    excerpt: "Building deep agents with tool-calling, sub-agents, and structured outputs — patterns I've used in production.",
-    category: "Agentic AI",
-    readTime: "11 min read",
-    status: "coming-soon",
-  },
-];
+import { blogs } from "@/data/blogs";
 
 const Blogs = () => {
   return (
@@ -95,11 +36,9 @@ const Blogs = () => {
 
         {/* Blog grid */}
         <section className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          {blogs.map((b, i) => (
-            <article
-              key={b.slug}
-              className="group relative rounded-3xl border border-border bg-card overflow-hidden hover:border-[hsl(262,83%,58%)]/40 transition-all card-hover flex flex-col"
-            >
+          {blogs.map((b, i) => {
+            const inner = (
+              <>
               {/* Cover */}
               <div className="relative aspect-[16/10] overflow-hidden bg-gradient-to-br from-[hsl(262,60%,18%)] via-[hsl(220,30%,12%)] to-[hsl(38,60%,20%)]">
                 <div className="absolute inset-0 opacity-30 mix-blend-overlay bg-[radial-gradient(circle_at_30%_20%,white,transparent_60%)]" />
@@ -113,13 +52,14 @@ const Blogs = () => {
                     {b.category}
                   </span>
                 </div>
-                {b.status === "coming-soon" && (
+                {b.status === "external" && (
                   <div className="absolute top-4 right-4">
-                    <span className="px-2.5 py-1 rounded-full bg-[hsl(38,92%,55%)] text-[hsl(220,30%,8%)] text-[10px] font-bold tracking-wider uppercase">
-                      Coming Soon
+                    <span className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white text-[10px] font-bold tracking-wider uppercase">
+                      <ExternalLink className="w-3 h-3" /> dev.to
                     </span>
                   </div>
                 )}
+                {/* TODO[image]: drop the original cover into src/assets/blogs/{b.coverNote} and render it here */}
               </div>
 
               {/* Body */}
@@ -136,13 +76,25 @@ const Blogs = () => {
                     {b.readTime}
                   </span>
                   <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-foreground/70">
-                    Read soon
+                    {b.status === "external" ? "Read on dev.to" : "Read post"}
                     <ArrowUpRight className="w-3.5 h-3.5 group-hover:rotate-45 transition-transform" />
                   </span>
                 </div>
               </div>
-            </article>
-          ))}
+              </>
+            );
+            const className =
+              "group relative rounded-3xl border border-border bg-card overflow-hidden hover:border-[hsl(262,83%,58%)]/40 transition-all card-hover flex flex-col";
+            return b.status === "external" && b.externalUrl ? (
+              <a key={b.slug} href={b.externalUrl} target="_blank" rel="noreferrer" className={className}>
+                {inner}
+              </a>
+            ) : (
+              <Link key={b.slug} to={`/blogs/${b.slug}`} className={className}>
+                {inner}
+              </Link>
+            );
+          })}
         </section>
 
         {/* Newsletter / CTA */}

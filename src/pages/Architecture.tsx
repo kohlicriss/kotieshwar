@@ -42,6 +42,34 @@ const slides: Slide[] = [
   },
 ];
 
+// NOTE: Replace these placeholder srcs with the real diagrams later.
+// TODO[image]: drop Kafka diagram into src/assets/arch-kafka.png and import it here.
+// TODO[image]: drop Redis diagram into src/assets/arch-redis.png and import it here.
+// TODO[image]: drop Security diagram into src/assets/arch-security.png and import it here.
+slides.push(
+  {
+    src: archEcommerce, // TODO[image]: replace with Kafka diagram
+    title: "Event Streaming with Kafka",
+    caption: "Topics · Partitions · Consumer Groups · Exactly-Once",
+    description:
+      "How I model topics, partitions and consumer groups for high-throughput event streaming with replay safety and exactly-once semantics.",
+  },
+  {
+    src: archNotification, // TODO[image]: replace with Redis diagram
+    title: "Distributed Caching with Redis",
+    caption: "Cluster · Sharding · Pub/Sub · Streams",
+    description:
+      "Redis as the hot path — sharded clusters for cache, pub/sub for fan-out, and streams for durable consumer-group semantics.",
+  },
+  {
+    src: archProduction, // TODO[image]: replace with Security diagram
+    title: "Zero-Trust Security Framework",
+    caption: "mTLS · OAuth2 · Policy · Secrets Rotation",
+    description:
+      "Every service authenticates every request. mTLS between pods, OAuth2 at the edge, policy via OPA, and short-lived rotated secrets.",
+  },
+);
+
 const Architecture = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -175,19 +203,20 @@ const Architecture = () => {
               style={{ width: "min(70vw, 600px)" }}
             >
               <h2 className="text-3xl md:text-4xl font-bold tracking-tight leading-tight">
-                More architectures{" "}
+                Want the{" "}
                 <span className="bg-gradient-to-r from-[hsl(262,83%,58%)] to-[hsl(38,97%,64%)] bg-clip-text text-transparent">
-                  coming soon
+                  full story
                 </span>
+                ?
               </h2>
               <p className="text-muted-foreground">
-                Kafka deep-dives, Redis caching strategies, and zero-trust security frameworks are on the way.
+                Each diagram has a deep-dive blog post — Kafka, Redis Pub/Sub, SSE notifications and more. Head over to the blog floor.
               </p>
               <Link
-                to="/projects"
+                to="/blogs"
                 className="inline-flex w-fit items-center gap-2 px-5 py-2.5 rounded-full bg-foreground text-background text-sm font-semibold hover:opacity-90 transition-opacity"
               >
-                Explore the projects
+                Read the blogs
               </Link>
             </div>
           </div>
