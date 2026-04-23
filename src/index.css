@@ -263,3 +263,91 @@ All colors MUST be HSL.
     @apply bg-[hsl(var(--tag-growth))] text-primary;
   }
 }
+
+/* ===== Blog post (verbatim HTML) prose styling ===== */
+.blog-prose {
+  @apply text-foreground;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+}
+.blog-prose h2 {
+  @apply text-3xl md:text-4xl font-bold tracking-tight mt-14 mb-5 pb-3 border-b border-border;
+  color: hsl(var(--foreground));
+}
+.blog-prose h3 { @apply text-2xl font-bold tracking-tight mt-10 mb-3; }
+.blog-prose h4 { @apply text-xl font-semibold mt-8 mb-3; }
+.blog-prose p  { @apply my-4 text-foreground/85 leading-relaxed; }
+.blog-prose a  { @apply text-[hsl(38,92%,45%)] underline underline-offset-4 hover:text-[hsl(38,92%,55%)] transition-colors; }
+.blog-prose ul { @apply list-disc pl-6 my-4 space-y-1.5; }
+.blog-prose ol { @apply list-decimal pl-6 my-4 space-y-1.5; }
+.blog-prose li { @apply text-foreground/85; }
+.blog-prose strong { @apply text-foreground font-semibold; }
+.blog-prose blockquote {
+  @apply my-6 pl-5 pr-4 py-4 border-l-4 rounded-r-xl italic;
+  border-color: hsl(38, 92%, 55%);
+  background: hsl(var(--muted) / 0.5);
+}
+.blog-prose blockquote cite {
+  @apply block text-right not-italic text-sm font-semibold mt-2 text-muted-foreground;
+}
+.blog-prose code:not(pre code) {
+  @apply px-1.5 py-0.5 rounded text-sm font-mono;
+  background: hsl(var(--muted));
+  color: hsl(var(--foreground));
+}
+.blog-prose pre {
+  @apply my-6 p-5 rounded-2xl overflow-x-auto text-sm leading-relaxed;
+  background: hsl(220 30% 8%);
+  color: hsl(36 44% 96%);
+  border: 1px solid hsl(var(--border));
+}
+.blog-prose pre code { @apply font-mono text-[0.9rem]; background: transparent; color: inherit; }
+.blog-prose .code-box { @apply relative my-6; }
+.blog-prose .code-box .copy-btn {
+  @apply absolute top-3 right-3 px-2.5 py-1 text-xs rounded-md font-semibold;
+  background: hsl(38 92% 55%);
+  color: hsl(220 30% 8%);
+  pointer-events: none;
+  opacity: 0.85;
+}
+.blog-prose .image-placeholder {
+  @apply my-6 p-5 rounded-2xl text-sm border-2 border-dashed text-muted-foreground;
+  background: hsl(var(--muted) / 0.4);
+  border-color: hsl(var(--border));
+}
+.blog-prose .image-placeholder code {
+  @apply px-1 py-0.5 rounded text-xs font-mono;
+  background: hsl(var(--card));
+}
+.blog-prose .image-placeholder .muted { @apply opacity-60 text-xs; }
+.blog-prose .image-container {
+  @apply grid sm:grid-cols-2 gap-4 my-6;
+}
+.blog-prose .image-item { @apply rounded-2xl overflow-hidden; }
+.blog-prose .image-description, .blog-prose .p {
+  @apply text-sm text-muted-foreground text-center mt-2;
+}
+.blog-prose .dropdown {
+  @apply my-5 rounded-xl border border-border overflow-hidden;
+  background: hsl(var(--card));
+}
+.blog-prose .dropdown-title {
+  @apply px-4 py-3 font-semibold text-sm tracking-wide;
+  background: hsl(var(--muted));
+}
+.blog-prose .dropdown-content { @apply px-4 py-3 text-sm; }
+.blog-prose .highlight {
+  @apply my-5 px-4 py-3 rounded-xl border-l-4;
+  background: hsl(var(--muted) / 0.6);
+  border-color: hsl(262 83% 58%);
+}
+.blog-prose hr { @apply my-10 border-border; }
+.blog-prose center { @apply block text-center my-3; }
+/* Custom non-standard tags used in source HTML */
+.blog-prose pa, .blog-prose al, .blog-prose ss, .blog-prose hedding, .blog-prose l {
+  @apply block text-foreground/85 leading-relaxed;
+}
+.blog-prose al { @apply font-semibold text-[hsl(38,92%,45%)] mt-4; }
+.blog-prose ss { @apply font-medium text-foreground/90; }
+.blog-prose hedding { @apply font-bold text-lg text-foreground; }
+.blog-prose .section-title { @apply text-[hsl(262,83%,58%)]; }
