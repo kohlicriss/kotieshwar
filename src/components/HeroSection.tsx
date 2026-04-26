@@ -15,7 +15,7 @@ const HeroSection = () => {
           backgroundSize: "48px 48px",
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-accent/25 via-transparent to-secondary/20" />
+      <div className="absolute inset-0 bg-gradient-to-br from-card/12 via-transparent to-accent/12" />
       <div className="hero-orbit hero-orbit-one" />
       <div className="hero-orbit hero-orbit-two" />
       <div className="hero-scan" />
@@ -38,34 +38,34 @@ const HeroSection = () => {
         </div>
 
         {/* Right: Info */}
-        <div className="text-primary-foreground space-y-4 md:space-y-5 text-center md:text-left animate-slide-up">
+        <div className="hero-copy-panel hero-text space-y-4 md:space-y-5 text-center md:text-left animate-slide-up">
           {/* Brand mark */}
           <div className="flex items-center gap-3 justify-center md:justify-start">
-            <span className="text-xl md:text-2xl font-bold tracking-[0.2em] text-primary-foreground">KOTESHWAR</span>
-            <span className="hidden md:block h-px flex-1 bg-primary-foreground/20" />
+            <span className="text-xl md:text-2xl font-bold tracking-[0.2em] hero-text">KOTESHWAR</span>
+            <span className="hidden md:block h-px flex-1 hero-divider" />
           </div>
 
           {/* Accent bar + title */}
           <div className="space-y-2 md:space-y-3">
             <div className="w-12 h-0.5 bg-accent mx-auto md:mx-0" />
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold leading-[1.05] tracking-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.02] tracking-tight hero-title">
               Chinnolla Koteshwar
             </h1>
-            <p className="text-xs sm:text-sm md:text-base text-primary-foreground/65 tracking-[0.15em] uppercase">
+            <p className="text-xs sm:text-sm md:text-base hero-muted tracking-[0.15em] uppercase">
               Associate Software Engineer · IEEE Researcher
             </p>
           </div>
 
           {/* Description */}
-          <p className="text-primary-foreground/80 text-sm md:text-base leading-relaxed max-w-xl mx-auto md:mx-0">
+          <p className="hero-body text-sm md:text-base leading-relaxed max-w-xl mx-auto md:mx-0">
             Engineer at Anasol Consultancy Services building production-grade systems across{" "}
-            <span className="text-primary-foreground font-medium">Agentic AI, robotics, and cloud infrastructure</span>.
+            <span className="hero-text font-medium">Agentic AI, robotics, and cloud infrastructure</span>.
             Researching world models and reinforcement learning rooted in physics-first thinking.
           </p>
 
           {/* Socials + CTA row */}
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-4 border-t border-primary-foreground/10">
-            <div className="flex items-center gap-5 text-primary-foreground/70 justify-center md:justify-start">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-4 hero-border-top">
+            <div className="flex items-center gap-5 hero-muted justify-center md:justify-start">
               <a
                 href="https://github.com/KoteshwarChinnolla"
                 target="_blank"
@@ -96,18 +96,18 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3 w-full sm:w-auto">
               <Link
                 to="/about"
-                className="group inline-flex items-center justify-center gap-2 px-4 py-2.5 border border-primary-foreground/20 text-primary-foreground rounded-md font-semibold text-sm tracking-wide hover:bg-primary-foreground/10 transition-all"
+                className="group inline-flex items-center justify-center gap-2 px-4 py-2.5 hero-outline-button rounded-md font-semibold text-sm tracking-wide transition-all"
               >
                 <UserRound className="w-4 h-4" />
                 About Me
               </Link>
-              <a
-                href="/contact"
+              <Link
+                to="/contact"
                 className="group inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-accent text-accent-foreground rounded-md font-semibold text-sm tracking-wide hover:bg-accent/90 transition-all"
               >
                 Get in Touch
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
             </div>
           </div>
         </div>
