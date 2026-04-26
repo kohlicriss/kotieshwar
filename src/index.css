@@ -53,7 +53,7 @@ All colors MUST be HSL.
     --cream-foreground: 0 0% 18%;
     --surface-elevated: 36 44% 98%;
     --shadow-soft: 0 0% 0%;
-    --hero-deep: 35 30% 16%;
+    --hero-deep: 34 28% 20%;
     --hero-line: 36 44% 96%;
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -101,7 +101,7 @@ All colors MUST be HSL.
     --cream-foreground: 36 44% 96%;
     --surface-elevated: 0 0% 16%;
     --shadow-soft: 0 0% 0%;
-    --hero-deep: 0 0% 8%;
+    --hero-deep: 0 0% 7%;
     --hero-line: 36 44% 96%;
   }
 }
@@ -267,7 +267,51 @@ All colors MUST be HSL.
   }
 
   .hero-ambient {
-    box-shadow: inset 0 1px 0 hsl(var(--hero-line) / 0.08), 0 32px 90px -55px hsl(var(--shadow-soft) / 0.65);
+    box-shadow: inset 0 1px 0 hsl(var(--hero-line) / 0.1), 0 32px 90px -55px hsl(var(--shadow-soft) / 0.65);
+  }
+
+  .hero-copy-panel {
+    @apply relative rounded-3xl p-5 sm:p-6 md:p-8 border backdrop-blur-md;
+    background: hsl(var(--hero-deep) / 0.36);
+    border-color: hsl(var(--hero-line) / 0.12);
+    box-shadow: inset 0 1px 0 hsl(var(--hero-line) / 0.08), 0 24px 70px -45px hsl(var(--shadow-soft) / 0.75);
+  }
+
+  .hero-text {
+    color: hsl(var(--hero-line));
+  }
+
+  .hero-title {
+    color: hsl(var(--hero-line));
+    text-shadow: 0 2px 26px hsl(var(--shadow-soft) / 0.48);
+  }
+
+  .hero-muted,
+  .hero-body {
+    color: hsl(var(--hero-line) / 0.82);
+  }
+
+  .hero-divider,
+  .hero-border-top {
+    border-color: hsl(var(--hero-line) / 0.14);
+  }
+
+  .hero-divider {
+    background: hsl(var(--hero-line) / 0.2);
+  }
+
+  .hero-border-top {
+    border-top-width: 1px;
+  }
+
+  .hero-outline-button {
+    color: hsl(var(--hero-line));
+    border: 1px solid hsl(var(--hero-line) / 0.22);
+  }
+
+  .hero-outline-button:hover {
+    background: hsl(var(--hero-line) / 0.1);
+    border-color: hsl(var(--hero-line) / 0.34);
   }
 
   .hero-grid {
@@ -280,11 +324,11 @@ All colors MUST be HSL.
   }
 
   .hero-orbit-one {
-    @apply -top-28 -right-20 w-80 h-80 md:w-[28rem] md:h-[28rem] bg-accent/20;
+    @apply -top-28 -right-20 w-80 h-80 md:w-[28rem] md:h-[28rem] bg-card/20;
   }
 
   .hero-orbit-two {
-    @apply -bottom-28 -left-24 w-72 h-72 md:w-96 md:h-96 bg-secondary/25;
+    @apply -bottom-28 -left-24 w-72 h-72 md:w-96 md:h-96 bg-accent/20;
     animation-delay: -4s;
   }
 
