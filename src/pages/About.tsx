@@ -37,20 +37,22 @@ const About = () => {
     {
       icon: Rocket,
       kicker: "Chapter 04",
-      title: "Entering Industry — And Finding New Problems",
+      title: "Natural Language Meets Autonomous Motion",
       body: [
-        "After graduation, I joined as an Associate Software Engineer in an AI and DevOps role. The transition sharpened me. I worked on production-grade recommendation systems and took on DevOps responsibilities spanning AWS, Kubernetes, Terraform, Helm, Redis, Kafka, and Elasticsearch. I wrote open-source Terraform modules and Helm charts that are actively used — small contributions to a larger ecosystem, but ones I am genuinely proud of.",
-        "Alongside that, I began building APISynIQ — an open-source AI agent that interprets natural language queries and maps them to the correct API endpoints with the right parameters. The problem is real and widespread: humans describe what they want in imprecise language, but APIs require structured, precise input. Bridging that gap reliably is harder than it sounds.",
+        "To answer it, I started researching Agentic AI in my fourth year first semester. It took time. Making natural language reliably control a physical system is harder than it sounds.",
+        "By my final semester, I had a working system: ROS for navigation, A* for pathfinding, OpenCV for vision, and LangChain and LangGraph for the agentic layer, all running on a Raspberry Pi. A robot that could take a spoken or typed instruction and actually go where it was told.",
+        "I wrote it up, submitted it, and had it accepted and presented at an IEEE conference. That paper taught me how to think like a researcher, not just a builder.",
       ],
     },
     {
       icon: Lightbulb,
       kicker: "Chapter 05",
-      title: "The Problem I Cannot Stop Thinking About",
+      title: "Industry, APISynIQ, and the Research Question Ahead",
       body: [
-        "Working on both the autonomous vehicle and APISynIQ, I kept hitting the same fundamental limitation: language models struggle to reliably fill structured formats like JSON from natural language input. They misinterpret ambiguous queries. They make the same class of errors repeatedly. And critically — they do not learn from their mistakes within or across interactions.",
-        "This is not a minor inconvenience. In agentic systems, a malformed JSON call can cascade into complete task failure. In autonomous systems, a misinterpreted instruction can mean a robot going to the wrong place entirely. The stakes are real.",
-        "I am currently researching this problem at the intersection of world models and reinforcement learning — how a model can build an internal representation of structured output requirements, generate outputs accordingly, and iteratively correct itself based on feedback. It is early-stage research, but I am convinced it points toward something meaningful — and I want to pursue it rigorously at the graduate level.",
+        "After graduation, I joined as an Associate Software Engineer working across AI and DevOps. Industry exposed me to the full stack of production systems: recommendation engines, AWS infrastructure, Kubernetes, and Terraform. I wrote open-source Terraform modules and Helm charts that are actively used in the organisation.",
+        "But robots have no frontend. No form fields, no dropdowns, no structured input layer. A robot must ask questions conversationally, interpret the answers, map them to the right API parameters, and submit — all from raw natural language. The entire burden of structure falls on the AI. That gap is what APISynIQ was built to close.",
+        "I built APISynIQ as an open-source AI agent that could take a natural language query and reliably map it to the correct API endpoint with the right parameters. Under real conditions, the hard problem surfaced: continuous conversation still caused malformed structured outputs. A field mapped to the wrong key, an ambiguous phrase taken literally, or a previous correction ignored could cascade into complete task failure.",
+        "I am currently researching this problem at the intersection of world models and reinforcement learning: how a model can build an internal representation of structured output requirements, generate outputs accordingly, and iteratively correct itself based on feedback signals. It is early-stage research, but I am convinced it points toward something meaningful, and I want to pursue it rigorously at the graduate level.",
       ],
     },
   ];
