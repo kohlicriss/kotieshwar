@@ -10,8 +10,8 @@ const About = () => {
       kicker: "Chapter 01",
       title: "A Curiosity That Refused to Stay Still",
       body: [
-        "Physics was always my strongest subject — not just in school, but in every competitive exam I appeared for, whether JEE, EAMCET, or JEE Advanced. Topics like Kinematics, Laws of Motion, Rigid Body Dynamics, Electrostatics, and Electronic Devices built a curiosity in me, and I consistently scored at the top.",
-        "More than the scores, I genuinely enjoyed understanding how motion, energy, and electricity behaved — and how they connected to each other. That love for physics is what pointed me toward Electronics and Communication Engineering, and from there, toward building systems that can sense, process, and move intelligently in the real world.",
+        "Physics was always my strongest subject — not just in school, but in every competitive exam. More than the scores, I genuinely enjoyed understanding how motion, energy, and electricity behaved, and how they connected to each other.",
+        "That love for physics pointed me toward Electronics and Communication Engineering, and from there, toward building systems that can sense, process, and move intelligently in the real world.",
       ],
     },
     {
@@ -19,19 +19,19 @@ const About = () => {
       kicker: "Chapter 02",
       title: "Finding My Direction — AI Inside an ECE Degree",
       body: [
-        "In my first year, I joined the Advanced Academic Center (AAC) — a student body that encourages students to pursue projects and research beyond the standard curriculum. It was the best decision I made in college. My first project there was a product demand prediction system — modest by today's standards, but transformative for me at the time. I learnt to write real code, work with real data, and confront the gap between what textbooks describe and what systems actually do. That gap became my classroom.",
-        "From there, I dove deeper — NLP pipelines, pre-training strategies for transformers and image detection models, BERT-based classification systems from scratch, OpenCV projects, and hands-on lab work with microcontrollers and microprocessors — all in parallel with my core ECE coursework.",
-        "Over time, I grew into a mentorship role within AAC, guiding a team of four junior students through their own first projects. Teaching, I found, sharpened my own understanding in ways that studying alone never could. I participated in four hackathons during this period — each one teaching me something different about working under pressure and about how good engineering is as much about clarity of thought as it is about technical skill.",
+        "Engineering gave me more than a degree; it gave me a direction. By the end of my first semester, I knew AI and ML were where I wanted to go. That led me to the Advanced Academic Centre, a selective research center at our college where students work on real projects beyond the regular curriculum.",
+        "The people I met there were genuinely passionate, and the freedom to pick our own problems and build things that actually worked pushed me to go deeper than any classroom would have.",
+        "My first real project was a product demand prediction system. I collected actual wholesale market data spanning five years and built a model to forecast future demand patterns. It sounds straightforward now, but at the time it was the first moment I wrote real code that did something real. That feeling stayed with me.",
       ],
     },
     {
       icon: Bot,
       kicker: "Chapter 03",
-      title: "The Project That Changed Everything",
+      title: "Hackathons, Mentorship, and the First Robot",
       body: [
-        "In my final year, I took on what became the defining work of my undergraduate life — a Natural Language Based Autonomous Navigation Vehicle. The idea was simple on the surface: a robot that could understand spoken or typed human instructions and navigate autonomously to a destination.",
-        "I integrated ROS (Robot Operating System), the A* pathfinding algorithm, computer vision using OpenCV, and natural language processing into a single working system. I used LangChain and LangGraph to build the agentic layer — interpreting instructions, planning actions, and executing them in sequence — running entirely on a Raspberry Pi at the edge.",
-        "What started as a final year project ended up as a research paper accepted and presented at an IEEE conference. Writing it taught me how to think like a researcher: how to situate work within existing literature, articulate contributions clearly, and defend design choices under scrutiny.",
+        "In my second year, inside AAC, I was going deeper into ML and DL — NLP pipelines, transformer models, BERT-based classifiers, and OpenCV. My college also introduced a competitive coding program, and after multiple evaluation rounds I made it into the top 100 coders batch, training with the Smart Interviews team.",
+        "I participated in four hackathons, watched teams build autonomous and robotic systems in under 24 hours, met students already turning ideas into startups, and came back every time with a longer list of things I wanted to build.",
+        "By my third year, I had grown into a mentor role in AAC, guiding junior students through their first projects. Around the same time, microcontrollers and microprocessors entered my coursework. In my third year second semester, I built an A* algorithm-based autonomous vehicle — a grid-based system where a user manually selected a destination and the vehicle found the shortest path to get there. While I was deep in the path equations and hardware assembly, the limitation became obvious: why should a human have to think in grids? That question became the seed of everything that followed.",
       ],
     },
     {
