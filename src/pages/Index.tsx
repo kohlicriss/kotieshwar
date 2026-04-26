@@ -128,10 +128,10 @@ const Index = () => {
 
           <div className="grid md:grid-cols-2 gap-6">
             {/* Experience Card */}
-            <div className="rounded-3xl bg-card border border-border p-7 md:p-8 hover:border-[hsl(262,83%,58%)]/40 transition-all card-hover">
+            <div className="rounded-3xl bg-card border border-border p-7 md:p-8 hover:border-accent/50 transition-all interactive-card blur-lift scroll-reveal">
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-xl bg-[hsl(262,83%,58%)]/10 flex items-center justify-center">
-                  <Briefcase className="w-5 h-5 text-[hsl(262,83%,58%)]" />
+                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
+                  <Briefcase className="w-5 h-5 text-accent" />
                 </div>
                 <p className="text-xs tracking-[0.25em] uppercase font-semibold text-muted-foreground">Work Experience</p>
               </div>
@@ -139,15 +139,15 @@ const Index = () => {
               <p className="text-sm font-medium text-foreground/80 mt-1">Anasol Consultancy Services · Hyderabad</p>
               <p className="text-xs text-muted-foreground mt-1 mb-4">Apr 2025 – Present</p>
               <ul className="space-y-2.5 text-sm text-muted-foreground leading-relaxed">
-                <li className="flex gap-2"><span className="text-[hsl(262,83%,58%)] mt-1.5 w-1 h-1 rounded-full bg-current flex-shrink-0" /> Built and maintained AI-enabled backend systems for enterprise applications.</li>
-                <li className="flex gap-2"><span className="text-[hsl(262,83%,58%)] mt-1.5 w-1 h-1 rounded-full bg-current flex-shrink-0" /> Worked on recommendation systems and agent-based workflows for internal automation.</li>
-                <li className="flex gap-2"><span className="text-[hsl(262,83%,58%)] mt-1.5 w-1 h-1 rounded-full bg-current flex-shrink-0" /> Scalable infrastructure with AWS, Kubernetes, Terraform, Helm, Redis, Kafka, microservices.</li>
-                <li className="flex gap-2"><span className="text-[hsl(262,83%,58%)] mt-1.5 w-1 h-1 rounded-full bg-current flex-shrink-0" /> Authored reusable open-source Terraform modules and Helm charts in active production use.</li>
+                <li className="flex gap-2"><span className="text-accent mt-1.5 w-1 h-1 rounded-full bg-current flex-shrink-0" /> Built and maintained AI-enabled backend systems for enterprise applications.</li>
+                <li className="flex gap-2"><span className="text-accent mt-1.5 w-1 h-1 rounded-full bg-current flex-shrink-0" /> Worked on recommendation systems and agent-based workflows for internal automation.</li>
+                <li className="flex gap-2"><span className="text-accent mt-1.5 w-1 h-1 rounded-full bg-current flex-shrink-0" /> Scalable infrastructure with AWS, Kubernetes, Terraform, Helm, Redis, Kafka, microservices.</li>
+                <li className="flex gap-2"><span className="text-accent mt-1.5 w-1 h-1 rounded-full bg-current flex-shrink-0" /> Authored reusable open-source Terraform modules and Helm charts in active production use.</li>
               </ul>
             </div>
 
             {/* Education Card */}
-            <div className="rounded-3xl bg-card border border-border p-7 md:p-8 hover:border-[hsl(38,92%,55%)]/40 transition-all card-hover">
+            <div className="rounded-3xl bg-card border border-border p-7 md:p-8 hover:border-accent/50 transition-all interactive-card blur-lift scroll-reveal stagger-2">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-10 h-10 rounded-xl bg-[hsl(38,92%,55%)]/10 flex items-center justify-center">
                   <GraduationCap className="w-5 h-5 text-[hsl(38,92%,55%)]" />
