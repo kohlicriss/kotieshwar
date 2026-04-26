@@ -61,7 +61,7 @@ const Index = () => {
         </section>
 
         {/* Coursework */}
-        <section className="my-16 md:my-20 animate-fade-in">
+        <section className="my-16 md:my-20 scroll-reveal">
           <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-card/50 text-xs tracking-[0.2em] uppercase text-muted-foreground">
               <BookOpen className="w-3.5 h-3.5" />
@@ -73,10 +73,10 @@ const Index = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {coursework.map((c) => (
-              <div key={c.label} className="group p-6 rounded-2xl bg-card border border-border hover:border-[hsl(38,92%,55%)]/40 transition-all card-hover">
+            {coursework.map((c, index) => (
+              <div key={c.label} className={`group interactive-card flip-card p-6 rounded-2xl bg-card border border-border hover:border-accent/50 transition-all scroll-reveal stagger-${Math.min(index + 1, 6)}`}>
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center flex-shrink-0 group-hover:bg-[hsl(38,92%,55%)]/15 transition-colors">
+                  <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center flex-shrink-0 group-hover:bg-accent/15 transition-colors">
                     <c.icon className="w-5 h-5" />
                   </div>
                   <div className="space-y-1">
@@ -90,18 +90,18 @@ const Index = () => {
         </section>
 
         {/* Publication Highlight */}
-        <section className="my-16 md:my-20 rounded-[2rem] overflow-hidden relative border border-border bg-gradient-to-br from-[hsl(262,60%,12%)] via-[hsl(220,30%,8%)] to-[hsl(220,30%,8%)] text-white p-8 md:p-12 animate-scale-in">
-          <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-[hsl(38,92%,55%)]/20 blur-3xl" />
+        <section className="my-16 md:my-20 rounded-[2rem] overflow-hidden relative border border-border bg-card p-8 md:p-12 scroll-reveal interactive-card">
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-accent/10" />
           <div className="relative grid md:grid-cols-[auto_1fr_auto] gap-6 md:gap-10 items-center">
-            <div className="w-14 h-14 rounded-2xl bg-[hsl(38,92%,55%)]/15 border border-[hsl(38,92%,55%)]/30 flex items-center justify-center">
-              <BookOpen className="w-7 h-7 text-[hsl(38,92%,55%)]" />
+            <div className="w-14 h-14 rounded-2xl bg-accent/15 border border-accent/30 flex items-center justify-center">
+              <BookOpen className="w-7 h-7 text-accent" />
             </div>
             <div className="space-y-2">
-              <p className="text-xs tracking-[0.25em] uppercase text-[hsl(38,92%,65%)] font-semibold">IEEE Publication · ICOCT 2025</p>
+              <p className="text-xs tracking-[0.25em] uppercase text-accent font-semibold">IEEE Publication · ICOCT 2025</p>
               <h3 className="text-xl md:text-2xl font-bold leading-tight">
                 Natural Language Based Autonomous Navigation Vehicle
               </h3>
-              <p className="text-white/65 text-sm leading-relaxed">
+              <p className="text-muted-foreground text-sm leading-relaxed">
                 C. Koteshwar, M. D. Chaithanya, M. Abdul Kaleem, A. Vishnubhatla — DOI 10.1109/ICOCT64433.2025.11118685
               </p>
             </div>
@@ -109,7 +109,7 @@ const Index = () => {
               href="https://ieeexplore.ieee.org/document/11118685"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[hsl(38,92%,55%)] text-[hsl(220,30%,8%)] font-semibold text-sm hover:bg-[hsl(38,92%,60%)] transition-all"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-primary text-primary-foreground font-semibold text-sm hover:scale-105 transition-all"
             >
               Read Paper <ExternalLink className="w-4 h-4" />
             </a>
@@ -128,10 +128,10 @@ const Index = () => {
 
           <div className="grid md:grid-cols-2 gap-6">
             {/* Experience Card */}
-            <div className="rounded-3xl bg-card border border-border p-7 md:p-8 hover:border-[hsl(262,83%,58%)]/40 transition-all card-hover">
+            <div className="rounded-3xl bg-card border border-border p-7 md:p-8 hover:border-accent/50 transition-all interactive-card blur-lift scroll-reveal">
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-xl bg-[hsl(262,83%,58%)]/10 flex items-center justify-center">
-                  <Briefcase className="w-5 h-5 text-[hsl(262,83%,58%)]" />
+                <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
+                  <Briefcase className="w-5 h-5 text-accent" />
                 </div>
                 <p className="text-xs tracking-[0.25em] uppercase font-semibold text-muted-foreground">Work Experience</p>
               </div>
@@ -139,15 +139,15 @@ const Index = () => {
               <p className="text-sm font-medium text-foreground/80 mt-1">Anasol Consultancy Services · Hyderabad</p>
               <p className="text-xs text-muted-foreground mt-1 mb-4">Apr 2025 – Present</p>
               <ul className="space-y-2.5 text-sm text-muted-foreground leading-relaxed">
-                <li className="flex gap-2"><span className="text-[hsl(262,83%,58%)] mt-1.5 w-1 h-1 rounded-full bg-current flex-shrink-0" /> Built and maintained AI-enabled backend systems for enterprise applications.</li>
-                <li className="flex gap-2"><span className="text-[hsl(262,83%,58%)] mt-1.5 w-1 h-1 rounded-full bg-current flex-shrink-0" /> Worked on recommendation systems and agent-based workflows for internal automation.</li>
-                <li className="flex gap-2"><span className="text-[hsl(262,83%,58%)] mt-1.5 w-1 h-1 rounded-full bg-current flex-shrink-0" /> Scalable infrastructure with AWS, Kubernetes, Terraform, Helm, Redis, Kafka, microservices.</li>
-                <li className="flex gap-2"><span className="text-[hsl(262,83%,58%)] mt-1.5 w-1 h-1 rounded-full bg-current flex-shrink-0" /> Authored reusable open-source Terraform modules and Helm charts in active production use.</li>
+                <li className="flex gap-2"><span className="text-accent mt-1.5 w-1 h-1 rounded-full bg-current flex-shrink-0" /> Built and maintained AI-enabled backend systems for enterprise applications.</li>
+                <li className="flex gap-2"><span className="text-accent mt-1.5 w-1 h-1 rounded-full bg-current flex-shrink-0" /> Worked on recommendation systems and agent-based workflows for internal automation.</li>
+                <li className="flex gap-2"><span className="text-accent mt-1.5 w-1 h-1 rounded-full bg-current flex-shrink-0" /> Scalable infrastructure with AWS, Kubernetes, Terraform, Helm, Redis, Kafka, microservices.</li>
+                <li className="flex gap-2"><span className="text-accent mt-1.5 w-1 h-1 rounded-full bg-current flex-shrink-0" /> Authored reusable open-source Terraform modules and Helm charts in active production use.</li>
               </ul>
             </div>
 
             {/* Education Card */}
-            <div className="rounded-3xl bg-card border border-border p-7 md:p-8 hover:border-[hsl(38,92%,55%)]/40 transition-all card-hover">
+            <div className="rounded-3xl bg-card border border-border p-7 md:p-8 hover:border-accent/50 transition-all interactive-card blur-lift scroll-reveal stagger-2">
               <div className="flex items-center gap-3 mb-5">
                 <div className="w-10 h-10 rounded-xl bg-[hsl(38,92%,55%)]/10 flex items-center justify-center">
                   <GraduationCap className="w-5 h-5 text-[hsl(38,92%,55%)]" />
