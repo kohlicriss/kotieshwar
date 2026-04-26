@@ -53,6 +53,8 @@ All colors MUST be HSL.
     --cream-foreground: 0 0% 18%;
     --surface-elevated: 36 44% 98%;
     --shadow-soft: 0 0% 0%;
+    --hero-deep: 35 30% 16%;
+    --hero-line: 36 44% 96%;
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -99,6 +101,8 @@ All colors MUST be HSL.
     --cream-foreground: 36 44% 96%;
     --surface-elevated: 0 0% 16%;
     --shadow-soft: 0 0% 0%;
+    --hero-deep: 0 0% 8%;
+    --hero-line: 36 44% 96%;
   }
 }
 
@@ -131,7 +135,7 @@ All colors MUST be HSL.
   }
 
   .pill-nav {
-    @apply rounded-full bg-[hsl(var(--surface-elevated))] backdrop-blur-lg border border-border/50;
+    @apply rounded-full bg-[hsl(var(--surface-elevated)/0.86)] backdrop-blur-2xl border border-border/60;
   }
 
   .floating-button {
@@ -200,6 +204,27 @@ All colors MUST be HSL.
     50% { transform: translateY(-6px); }
   }
 
+  @keyframes driftGrid {
+    from { background-position: 0 0; }
+    to { background-position: 48px 48px; }
+  }
+
+  @keyframes orbitPulse {
+    0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.42; }
+    50% { transform: translate3d(-18px, 14px, 0) scale(1.08); opacity: 0.64; }
+  }
+
+  @keyframes scanLine {
+    0% { transform: translateY(-100%); opacity: 0; }
+    20%, 80% { opacity: 0.35; }
+    100% { transform: translateY(100%); opacity: 0; }
+  }
+
+  @keyframes interestScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(calc(-50% - 0.625rem)); }
+  }
+
   .animate-fade-in {
     animation: fadeIn 0.5s ease-out;
   }
@@ -241,12 +266,62 @@ All colors MUST be HSL.
     backdrop-filter: blur(14px);
   }
 
+  .hero-ambient {
+    box-shadow: inset 0 1px 0 hsl(var(--hero-line) / 0.08), 0 32px 90px -55px hsl(var(--shadow-soft) / 0.65);
+  }
+
+  .hero-grid {
+    animation: driftGrid 18s linear infinite;
+  }
+
+  .hero-orbit {
+    @apply absolute rounded-full blur-3xl;
+    animation: orbitPulse 9s ease-in-out infinite;
+  }
+
+  .hero-orbit-one {
+    @apply -top-28 -right-20 w-80 h-80 md:w-[28rem] md:h-[28rem] bg-accent/20;
+  }
+
+  .hero-orbit-two {
+    @apply -bottom-28 -left-24 w-72 h-72 md:w-96 md:h-96 bg-secondary/25;
+    animation-delay: -4s;
+  }
+
+  .hero-scan {
+    @apply absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-primary-foreground/10 to-transparent;
+    animation: scanLine 7s ease-in-out infinite;
+  }
+
+  .hero-photo {
+    animation: softFloat 5.5s ease-in-out infinite;
+  }
+
+  .interest-marquee-mask {
+    @apply relative overflow-hidden;
+    mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  }
+
+  .interest-marquee-track {
+    @apply flex gap-5 w-max py-2;
+    animation: interestScroll 32s linear infinite;
+  }
+
+  .interest-marquee-track:hover {
+    animation-play-state: paused;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .scroll-reveal,
     .animate-fade-in,
     .animate-slide-up,
     .animate-slide-down,
-    .animate-scale-in {
+    .animate-scale-in,
+    .hero-grid,
+    .hero-orbit,
+    .hero-scan,
+    .hero-photo,
+    .interest-marquee-track {
       animation: none;
     }
   }
