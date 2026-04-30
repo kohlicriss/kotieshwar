@@ -4,7 +4,7 @@ import koteshwarImg from "@/assets/koteshwar-hero.png";
 
 const HeroSection = () => {
   return (
-    <section className="hero-ambient relative min-h-[calc(100vh-7.5rem)] rounded-[1.75rem] md:rounded-[2rem] overflow-hidden my-4 md:my-6 animate-fade-in border border-border/40 flex items-center">
+    <section className="hero-ambient relative min-h-[calc(100vh-9rem)] rounded-[1.25rem] md:rounded-[1.5rem] overflow-hidden my-3 md:my-4 animate-fade-in border border-border/40 flex items-center">
       {/* Animated backdrop with subtle gradient + grid pattern */}
       <div className="absolute inset-0 bg-[hsl(var(--hero-deep))]" />
       <div
@@ -15,16 +15,16 @@ const HeroSection = () => {
           backgroundSize: "48px 48px",
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-card/12 via-transparent to-accent/12" />
+      <div className="absolute inset-0 hero-tone" />
       <div className="hero-orbit hero-orbit-one" />
       <div className="hero-orbit hero-orbit-two" />
       <div className="hero-scan" />
 
       {/* Content grid */}
-      <div className="relative w-full grid grid-cols-1 md:grid-cols-[0.9fr_1.2fr] gap-6 md:gap-12 p-5 sm:p-7 md:p-12 lg:p-14 items-center">
+      <div className="relative w-full grid grid-cols-1 md:grid-cols-[0.82fr_1.18fr] gap-5 md:gap-9 p-4 sm:p-6 md:p-9 lg:p-11 items-center">
         {/* Left: Photo */}
-        <div className="relative mx-auto w-full max-w-[280px] md:max-w-none">
-          <div className="relative aspect-[4/5] md:aspect-square rounded-2xl overflow-hidden border border-primary-foreground/10 shadow-2xl hero-photo">
+        <div className="relative mx-auto w-full max-w-[245px] md:max-w-[330px] lg:max-w-[360px]">
+          <div className="relative aspect-[4/5] md:aspect-square rounded-xl overflow-hidden border border-primary-foreground/10 shadow-2xl hero-photo">
             <img
               src={koteshwarImg}
               alt="Chinnolla Koteshwar"
@@ -33,12 +33,12 @@ const HeroSection = () => {
             <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent" />
           </div>
           {/* Accent corner mark */}
-          <div className="absolute -bottom-2 -right-2 w-16 h-1 bg-accent" />
-          <div className="absolute -bottom-2 -right-2 w-1 h-16 bg-accent" />
+          <div className="absolute -bottom-1.5 -right-1.5 w-14 h-1 bg-accent" />
+          <div className="absolute -bottom-1.5 -right-1.5 w-1 h-14 bg-accent" />
         </div>
 
         {/* Right: Info */}
-        <div className="hero-copy-panel hero-text space-y-4 md:space-y-5 text-center md:text-left animate-slide-up">
+        <div className="hero-copy-panel hero-text space-y-3.5 md:space-y-4 text-center md:text-left animate-slide-up">
           {/* Brand mark */}
           <div className="flex items-center gap-3 justify-center md:justify-start">
             <span className="text-xl md:text-2xl font-bold tracking-[0.2em] hero-text">KOTESHWAR</span>
@@ -48,7 +48,7 @@ const HeroSection = () => {
           {/* Accent bar + title */}
           <div className="space-y-2 md:space-y-3">
             <div className="w-12 h-0.5 bg-accent mx-auto md:mx-0" />
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold leading-[1.02] tracking-tight hero-title">
+            <h1 className="text-4xl sm:text-5xl md:text-[3.4rem] lg:text-6xl font-bold leading-[1.02] tracking-tight hero-title">
               Chinnolla Koteshwar
             </h1>
             <p className="text-xs sm:text-sm md:text-base hero-muted tracking-[0.15em] uppercase">
@@ -64,7 +64,7 @@ const HeroSection = () => {
           </p>
 
           {/* Socials + CTA row */}
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-4 hero-border-top">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3.5 pt-3.5 hero-border-top">
             <div className="flex items-center gap-5 hero-muted justify-center md:justify-start">
               <a
                 href="https://github.com/KoteshwarChinnolla"
