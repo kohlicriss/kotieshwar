@@ -53,8 +53,8 @@ All colors MUST be HSL.
     --cream-foreground: 0 0% 18%;
     --surface-elevated: 36 44% 98%;
     --shadow-soft: 0 0% 0%;
-    --hero-deep: 34 28% 20%;
-    --hero-line: 36 44% 96%;
+    --hero-deep: 38 22% 24%;
+    --hero-line: 38 28% 92%;
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
@@ -101,8 +101,8 @@ All colors MUST be HSL.
     --cream-foreground: 36 44% 96%;
     --surface-elevated: 0 0% 16%;
     --shadow-soft: 0 0% 0%;
-    --hero-deep: 0 0% 7%;
-    --hero-line: 36 44% 96%;
+    --hero-deep: 0 0% 9%;
+    --hero-line: 38 28% 92%;
   }
 }
 
@@ -271,10 +271,17 @@ All colors MUST be HSL.
   }
 
   .hero-copy-panel {
-    @apply relative rounded-3xl p-5 sm:p-6 md:p-8 border backdrop-blur-md;
-    background: hsl(var(--hero-deep) / 0.36);
+    @apply relative rounded-2xl p-4 sm:p-5 md:p-7 border backdrop-blur-md;
+    background: hsl(var(--hero-deep) / 0.68);
     border-color: hsl(var(--hero-line) / 0.12);
     box-shadow: inset 0 1px 0 hsl(var(--hero-line) / 0.08), 0 24px 70px -45px hsl(var(--shadow-soft) / 0.75);
+  }
+
+  .hero-tone {
+    background:
+      radial-gradient(circle at 20% 12%, hsl(var(--accent) / 0.14), transparent 34%),
+      radial-gradient(circle at 88% 82%, hsl(var(--card) / 0.16), transparent 38%),
+      linear-gradient(135deg, hsl(var(--hero-deep) / 0.94), hsl(var(--background) / 0.38));
   }
 
   .hero-text {
@@ -324,7 +331,7 @@ All colors MUST be HSL.
   }
 
   .hero-orbit-one {
-    @apply -top-28 -right-20 w-80 h-80 md:w-[28rem] md:h-[28rem] bg-card/20;
+    @apply -top-28 -right-20 w-80 h-80 md:w-[28rem] md:h-[28rem] bg-muted/20;
   }
 
   .hero-orbit-two {
@@ -333,7 +340,7 @@ All colors MUST be HSL.
   }
 
   .hero-scan {
-    @apply absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-primary-foreground/10 to-transparent;
+    @apply absolute inset-x-0 top-0 h-1/2 bg-gradient-to-b from-muted/10 to-transparent;
     animation: scanLine 7s ease-in-out infinite;
   }
 
